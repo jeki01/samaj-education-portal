@@ -30,9 +30,10 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
         } catch (error) {
             const er = error as { response: { data: { status: string } } }
             const status = er?.response?.data?.status;
-            if (status === "no") {
-                setAuthenticated(false);
-                setLoading(false);
+            setAuthenticated(false);
+            setLoading(false);
+            if (status !== "no") {
+                console.error("Auth verify error:", error);
             }
         }
     }
