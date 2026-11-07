@@ -25,7 +25,9 @@ export function isPdfFile(url: string) {
 
 export function checkAuthUserHelper(err: ErrResp) {
     const unAuthStatus = err?.response?.status;
+    console.log("[Auth] checkAuthUserHelper called, status:", unAuthStatus, "message:", err?.response?.data?.message);
     if (unAuthStatus === 401) {
+        console.error("[Auth] 401 — logging out and redirecting to /");
         Cookies.remove("buuid");
         window.location.href = "/";
     }
