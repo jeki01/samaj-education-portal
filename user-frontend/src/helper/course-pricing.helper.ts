@@ -103,28 +103,26 @@ export function calculateNonDiscounted_CoursePrice(...prices: number[]): number 
 
 export function calculateTestCourseItemPrice(course: CourseListData, testPercentage: number, testCount: number) {
     const price = course.coursePrice;
+    const totalItem = course.testSeries.length;
 
-    if (price && testPercentage) {
+    if (price && testPercentage && totalItem > 0 && testCount > 0) {
         const itemPackPrice = getCourseCategoryPrice(price, testPercentage);
-        const totalItem = course.testSeries.length;
-        const selectedItemCount = testCount;
+        const selectedItemCount = Math.min(testCount, totalItem);
         const discount = COURSE_CALCULATION.DISCOUNT_VALUE;
-        const priceAccordingToSelectedItem = getCourseItemPrice(itemPackPrice, totalItem, selectedItemCount, discount);
-        return priceAccordingToSelectedItem;
+        return getCourseItemPrice(itemPackPrice, totalItem, selectedItemCount, discount);
     }
     return 0;
 }
 
 export function calculateVideoCourseItemPrice(course: CourseListData, videoPercentage: number, videoCount: number) {
     const price = course.coursePrice;
+    const totalItem = course.videoLectures.length;
 
-    if (price && videoPercentage) {
+    if (price && videoPercentage && totalItem > 0 && videoCount > 0) {
         const itemPackPrice = getCourseCategoryPrice(price, videoPercentage);
-        const totalItem = course.videoLectures.length;
-        const selectedItemCount = videoCount;
+        const selectedItemCount = Math.min(videoCount, totalItem);
         const discount = COURSE_CALCULATION.DISCOUNT_VALUE;
-        const priceAccordingToSelectedItem = getCourseItemPrice(itemPackPrice, totalItem, selectedItemCount, discount);
-        return priceAccordingToSelectedItem;
+        return getCourseItemPrice(itemPackPrice, totalItem, selectedItemCount, discount);
     }
     return 0;
 }
