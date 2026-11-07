@@ -36,7 +36,7 @@ export default function ReferEarn() {
         <>
             <div className="flex items-center gap-x-2 refer-earn-section">
                 <div className="refer-earn-section-base">
-                    <h2 className="refer-title">Bussibees Wallet</h2>
+                    <h2 className="refer-title">Panchal Pragati Wallet</h2>
                     <div className="current-balance">
                         <div>
                             <div className="current-balance-price"><CashIcon /><span> INR</span> {formatNumber(referDetailsData?.earning)}/-</div>
@@ -49,7 +49,7 @@ export default function ReferEarn() {
                     </div>
                     {/* info tooltip */}
                     <Tooltip
-                        content="You are entitled to use this amount for purchasing any of the courses offered by Bussibees for government exam."
+                        content="You are entitled to use this amount for purchasing any of the courses offered by Panchal Pragati for government exam."
                         showArrow={true}
                         classNames={{ base: "max-w-[158px]", content: "text-[12px] text-[#7A7A7A]" }}
                         placement="left"

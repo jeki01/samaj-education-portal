@@ -56,7 +56,7 @@ export default function BuyCompetitionTestModal({ isOpen, onOpenChange, onClose,
                                     <div className="referral-rewards-details">Earn <span> 10% credit</span> for every successful referral.</div>
                                     <div className="referral-rewards-details">Refer up to <span> 10 friends </span>& get 100%  of your fee back in credits!</div>
                                 </div>
-                                <p className="scheduled-test__note">*Credits are non-withdrawable and can be used to purchase future tests & courses on Bussibees platform.</p>
+                                <p className="scheduled-test__note">*Credits are non-withdrawable and can be used to purchase future tests & courses on Panchal Pragati platform.</p>
                                 <button onClick={() => handleEnrollNow(onClose)} className="scheduled-test-enroll-btn">Enroll Now</button>
                             </ModalBody>
                         </>

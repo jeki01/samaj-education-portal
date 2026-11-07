@@ -31,7 +31,7 @@ export default function SideBar({ toggleMenu, handleClose }: { toggleMenu: boole
             <div className={`w-[240px] bg-[#F7F1FF] h-screen layout-sidebar p-[32px] pt-4 flex flex-col justify-between ${toggleMenu ? "open" : "close"}`}>
                 <div className="w-full mx-auto flex flex-col gap-y-[48px] content__wrapper">
                     <div className="flex justify-between items-center logo__header">
-                        <img src="/brand-logo.svg" alt="logo" className="w-[143px] h-[64px]" />
+                        <img src="/brand-logo.png" alt="Panchal Pragati" className="w-[143px] h-[64px]" />
                         <button onClick={() => handleClose(false)} className="close--btn"><CloseMenuIcon /></button>
                     </div>
                     <div className="flex flex-col gap-y-[10px]">
@@ -137,7 +137,7 @@ export default function SideBar({ toggleMenu, handleClose }: { toggleMenu: boole
                         <AccountSwitchIcon />
                         <div className=" flex items-center justify-between w-full">
                             <div className="flex flex-col justify-start items-start">
-                                <div className=" text-[#9533FB] text-[14px] font-medium">Bussibees</div>
+                                <div className=" text-[#9533FB] text-[14px] font-medium">Panchal Pragati</div>
                                 <div className=" text-[#9533FB] text-[10px] font-medium">{accountMode}</div>
                             </div>
                             <RightArrowIcon />

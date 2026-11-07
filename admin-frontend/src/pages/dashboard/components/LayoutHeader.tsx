@@ -8,7 +8,7 @@ export default function LayoutHeader() {
         <>
             <div className="bg-[#9933FF]">
                 <div className="bg-white h-[90px] rounded-bl-[50px] ml-2 pl-2 flex items-center font-normal text-lg gap-x-16">
-                    <img src="/brand-logo.svg" alt="logo" className="w-[12%] ml-4" />
+                    <img src="/brand-logo.png" alt="Panchal Pragati" className="w-[12%] ml-4 object-contain" />
                     {currentPage && SideNav.map(({ page_path, name, fill_icon, subLink }) => {
                         if (page_path === currentPage) {
                             return <div key={page_path} className="flex items-center gap-x-2 text-[14px] font-bold text-[#333399]"> {fill_icon && <img src={fill_icon} alt={name} />} {name} </div>

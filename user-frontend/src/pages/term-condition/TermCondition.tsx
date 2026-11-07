@@ -5,7 +5,7 @@ export default function TermCondition() {
             <div className="max-w-[1200px] mx-auto p-4 min-h-[calc(100vh-106px)]">
                 <h1 className="text-xl md:text-4xl font-bold mb-4">Terms & Conditions</h1>
                 <h4 className="text-[16px] md:text-lg font-bold mb-2">Introduction</h4>
-                <p className="text-[14px] md:text-[16px] mb-8 text-[#333]">These Terms and Conditions ("Terms") govern the use of the educational services, website, and mobile application ("Platform") provided by Bussibees Edtech Pvt. Ltd. ("Company", "We", "Our").</p>
+                <p className="text-[14px] md:text-[16px] mb-8 text-[#333]">These Terms and Conditions ("Terms") govern the use of the educational services, website, and mobile application ("Platform") provided by Panchal Pragati ("Company", "We", "Our").</p>
                 <h4 className="text-[16px] md:text-lg font-bold mb-2">Our Services</h4>
                 <p className="text-[14px] md:text-[16px] text-[#333]">We provide the following education and training services:</p>
                 <ul className="text-[14px] md:text-[16px] text-[#333] mb-8">
