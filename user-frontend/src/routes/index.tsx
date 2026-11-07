@@ -13,7 +13,7 @@ import Login from "@/pages/login/Login";
 import OTP from "@/pages/otp/OTP";
 import SelectExam from "@/pages/select-exam/SelectExam";
 import SignUp from "@/pages/signup/SignUp";
-import { Route, Routes } from "react-router";
+import { Navigate, Route, Routes } from "react-router";
 import ProtectedRoute from "./ProtectedRoute";
 import PublicRoute from "./PublicRoute";
 // import TestInstruction from "@/pages/dashboard/course-test-page/components/instruction/TestInstruction";
@@ -62,22 +62,26 @@ export default function Index() {
                     <Route path="/my-learning" element={<MyLearning />} />
                     <Route path="/my-learning/:courseId" element={<MyLearnCourseDetails />} />
 
-                    {
-                        accountMode === "exam" ? <>
-                            <Route path="/home" element={<HomePage />} />
-                            <Route path="/complimentary" element={<Complimentary />} />
-                            <Route path="/complimentary/:courseId" element={<ComplimentaryCourseDetails />} />
-                            <Route path="/wishlist" element={<WishlistPage />} />
-                            <Route path="/competitions" element={<CompetitionPage />} />
-                            <Route path="/competitions/chat/:testId" element={<Chat />} />
-                        </>
-                            : <>
-                                <Route path="/explore-bundle" element={<Plans />} />
-                                <Route path="/certificates" element={<SkillCertificates />} />
-                                <Route path="/overview" element={<SkillOverview />} />
-                                <Route path="/referrals" element={<ReferralsIndex />} />
-                            </>
-                    }
+                    {/* Exam mode routes */}
+                    <Route path="/home" element={
+                        accountMode === null ? <div className="flex justify-center items-center h-screen">Loading...</div>
+                        : accountMode === "exam" ? <HomePage />
+                        : <Navigate to="/overview" replace />
+                    } />
+                    <Route path="/complimentary" element={<Complimentary />} />
+                    <Route path="/complimentary/:courseId" element={<ComplimentaryCourseDetails />} />
+                    <Route path="/wishlist" element={<WishlistPage />} />
+                    <Route path="/competitions" element={<CompetitionPage />} />
+                    <Route path="/competitions/chat/:testId" element={<Chat />} />
+                    {/* Skills mode routes */}
+                    <Route path="/explore-bundle" element={<Plans />} />
+                    <Route path="/certificates" element={<SkillCertificates />} />
+                    <Route path="/overview" element={
+                        accountMode === null ? <div className="flex justify-center items-center h-screen">Loading...</div>
+                        : accountMode !== "exam" ? <SkillOverview />
+                        : <Navigate to="/home" replace />
+                    } />
+                    <Route path="/referrals" element={<ReferralsIndex />} />
 
                 </Route>
                 <Route element={<OnboardLayout />}>
