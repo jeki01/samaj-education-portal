@@ -42,7 +42,7 @@ function MobileHeader({ setToggleMenu, toggleMenu }: MobileHeaderProps) {
                             <NotificationPrimaryIcon />
                         </button>
                     </div>
-                    <img src="/brand-logo.svg" alt="Panchal Pragati" className="mobile-logo" />
+                    <img src="/brand-logo.png" alt="Panchal Pragati" className="mobile-logo" />
                 </div>
                 <Outlet />
             </div>

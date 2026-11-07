@@ -7,7 +7,7 @@ export default function Login() {
   return (
     <>
       <div className="h-[90px] bg-white flex justify-center">
-        <img src="/brand-logo.svg" alt="Panchal Pragati" className="w-[227px] h-[88px] object-contain" />
+        <img src="/brand-logo.png" alt="Panchal Pragati" className="w-[227px] h-[88px] object-contain" />
       </div>
       <div className="bg-[linear-gradient(90deg,#6633CC,#9933FF)] h-[calc(100vh-90px)] min-h-96 bg-cover bg-no-repeat flex justify-center items-center">
         <div className="bg-white rounded-[10px] drop-shadow-[0_0_4px_rgba(0,0,0,0.25)] px-6 py-10 sm:w-[495px]">
