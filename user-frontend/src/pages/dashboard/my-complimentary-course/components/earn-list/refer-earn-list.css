@@ -1,0 +1,140 @@
+.refer-earn-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    gap: 8px;
+
+    &>svg {
+        width: 18px;
+    }
+}
+
+.refer-earn-btn-container {
+    font-weight: 600;
+    color: #fff;
+    border-radius: 8px;
+    background-color: #6633CC;
+    box-shadow: 0 3px 22px 1px #9533FB33;
+    display: flex;
+    align-items: center;
+    width: 98%;
+    justify-content: center;
+    gap: 8px;
+    padding: .4rem;
+    font-size: 14px;
+    margin: .9rem 0 .1rem 0;
+    position: relative;
+
+    &>svg {
+        width: 18px;
+    }
+
+    .refer-earn-icon {
+        position: absolute;
+        right: 0px;
+        top: 0%;
+        width: 33px;
+        border-radius: 0 8px 8px 0;
+        background-color: #fff;
+        height: 100%;
+        border: 1px solid #6633CC;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        svg {
+            transition: transform 0.3s ease-in-out;
+        }
+    }
+
+    .refer-earn-icon.open {
+        border-bottom-right-radius: 0;
+        svg {
+            transform: rotate(180deg);
+        }
+    }
+}
+
+.refer-earn-btn-container.open{
+    border-radius: 8px 8px 0 0;
+}
+
+.refer-earn-list {
+    background-color: #F7F1FF;
+    padding: 0;
+    /* padding: 0 0 .5rem 0; */
+    border-radius: 0 0 11px 11px;
+    width: 98%;
+    height: 0px;
+    overflow: hidden;
+    transition: height 0.3s ease-in-out;
+
+
+    table {
+        width: 100%;
+    }
+
+    thead {
+        background-color: #6633CC;
+        color: #fff;
+
+        th {
+            font-weight: 500;
+            height: 40px;
+            font-size: 14px;
+
+            &:nth-last-child(1) {
+                width: 50%;
+                text-align: end;
+                padding-right: 1.5rem;
+            }
+        }
+    }
+
+    tbody {
+        tr {
+            height: 40px;
+
+            &:not(:last-child) {
+                border-bottom: 1px solid #7B788066;
+            }
+        }
+
+        td {
+            text-align: center;
+            font-size: 14px;
+            font-weight: 600;
+
+            &:nth-last-child(1) {
+                width: 50%;
+                text-align: end;
+                padding-right: 1rem;
+            }
+        }
+
+        .status {
+            span {
+                height: 22px;
+                min-width: 83px;
+                display: inline-flex;
+                justify-content: center;
+                align-items: center;
+                font-weight: 400;
+                font-size: 12px;
+            }
+        }
+
+        .status.success {
+            span {
+                background-color: #00BD58;
+                color: #fff;
+            }
+        }
+    }
+}
+
+.refer-earn-list.open {
+    padding: 0 0 .5rem 0;
+    height: 446px;
+}

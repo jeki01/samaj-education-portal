@@ -1,0 +1,135 @@
+.user-list-body {
+    height: calc(100vh - 340px);
+    overflow-y: scroll;
+    margin-right: -11px;
+    padding-right: 6px;
+}
+
+.user-list-body::-webkit-scrollbar {
+    width: 5px;
+    background: transparent;
+}
+.user-list-body::-webkit-scrollbar-track {
+    background-color: #fff;
+}
+.user-list-body::-webkit-scrollbar-thumb {
+    background-color: #d8d8d8;
+    border-radius: 25px;
+}
+
+.user-badge-yes {
+    background-color: #DCFCE7;
+    color: #16A34A;
+    border-radius: 25px;
+    height: 28px;
+    padding: 0 14px;
+    display: inline-flex;
+    align-items: center;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.user-badge-no {
+    background-color: #FEE2E2;
+    color: #DC2626;
+    border-radius: 25px;
+    height: 28px;
+    padding: 0 14px;
+    display: inline-flex;
+    align-items: center;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.user-badge-type {
+    background-color: #EDE9FE;
+    color: #6633CC;
+    border-radius: 25px;
+    height: 28px;
+    padding: 0 14px;
+    display: inline-flex;
+    align-items: center;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.user-avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #6633CC, #9933FF);
+    color: #fff;
+    font-size: 13px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.user-page-btn {
+    height: 34px;
+    min-width: 34px;
+    padding: 0 10px;
+    border: 1px solid #E3E3E3;
+    border-radius: 8px;
+    background: #fff;
+    color: #313E3B;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.15s;
+}
+
+.user-page-btn:hover:not(:disabled) {
+    border-color: #6633CC;
+    color: #6633CC;
+}
+
+.user-page-btn.active-page {
+    background: linear-gradient(135deg, #6633CC, #9933FF);
+    color: #fff;
+    border-color: #6633CC;
+}
+
+.user-page-btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+.user-search-input {
+    height: 40px;
+    border: 1px solid #E3E3E3;
+    border-radius: 10px;
+    padding: 0 14px;
+    font-size: 14px;
+    outline: none;
+    width: 280px;
+    transition: border 0.15s;
+    background: #FAFAFA;
+}
+
+.user-search-input:focus {
+    border-color: #6633CC;
+    background: #fff;
+}
+
+.user-detail-row {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.user-detail-key {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #888;
+    font-weight: 600;
+}
+
+.user-detail-val {
+    font-size: 14px;
+    font-weight: 500;
+    color: #1e293b;
+}

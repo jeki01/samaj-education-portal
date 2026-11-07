@@ -1,0 +1,122 @@
+.txn-history-base {
+    margin: 1rem 0;
+}
+
+.txn-history-title {
+    font-weight: 600;
+}
+
+.txn-history-list-container {
+    margin: 1rem 0;
+
+    @media screen and (max-width:768px) {
+        overflow-x: scroll;
+    }
+
+}
+
+.txn-history-list-item {
+    background-color: #F7F1FF;
+    border-radius: 10px;
+    padding: .5rem 1rem;
+    display: flex;
+    align-items: center;
+    margin: 1rem 0;
+    min-width: max-content;
+    gap: 1rem;
+
+    /* resp width */
+    @media screen and (max-width:768px) {
+        /* flex-wrap: wrap; */
+    }
+
+    &>div {
+        /* width: 33%; */
+
+        &:nth-child(1) {
+            flex: 1 100%;
+
+            /* resp width */
+            @media screen and (max-width:768px) {
+                /* width: 100%; */
+            }
+        }
+
+        &:last-child {
+            flex: 1 20%;
+        }
+
+        &:nth-child(2),
+        &:nth-child(3) {
+
+            /* resp width */
+            @media screen and (max-width:768px) {
+                /* width: fit-content; */
+                /* margin-right: 1rem; */
+            }
+        }
+
+    }
+}
+
+.txn-contents {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.txn-history-details {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    img {
+        @media screen and (max-width:768px) {
+            width: 46px;
+            height: auto;
+        }
+    }
+}
+
+.txn-title {
+    font-weight: 600;
+    font-size: 14px;
+
+    @media screen and (max-width:768px) {
+        max-width: 100px;
+    }
+}
+
+.txn-validity {
+    font-size: 12px;
+    color: #7A7A7A;
+    display: flex;
+    gap: 4px;
+    white-space: nowrap;
+
+    @media screen and (max-width:768px) {
+        font-size: 10px;
+    }
+}
+
+.txn-history-date {
+    text-align: center;
+    font-size: 14px;
+    color: #7A7A7A;
+    white-space: nowrap;
+
+    @media screen and (max-width:768px) {
+        font-size: 10px;
+        padding-right: 10px;
+    }
+}
+
+.txn-history-price {
+    text-align: end;
+    color: #9533FB;
+    font-weight: 600;
+
+    @media screen and (max-width:768px) {
+        margin: 0%;
+    }
+}

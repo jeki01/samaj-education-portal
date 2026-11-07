@@ -1,0 +1,14 @@
+
+export default function ThreeDotsIcon() {
+    return <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="4"
+        height="16"
+        fill="none"
+        viewBox="0 0 4 16"
+    >
+        <circle cx="2" cy="2" r="2" fill="#000"></circle>
+        <circle cx="2" cy="8" r="2" fill="#000"></circle>
+        <circle cx="2" cy="14" r="2" fill="#000"></circle>
+    </svg>
+}

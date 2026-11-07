@@ -1,0 +1,42 @@
+.my-learn-list-box {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+
+}
+
+.my-learning-select-listbox-wrapper {
+    max-height: unset !important;
+}
+
+
+.course-list-head.my-learning {
+    margin-top: .5rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 1rem;
+    overflow-x: scroll;
+    width: 100%;
+    padding: 1rem 0;
+
+    &::-webkit-scrollbar {
+        height: 6px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: #b984ff66;
+        border-radius: 4px;
+    }
+
+    &::-webkit-scrollbar-track {
+        border-radius: 4px;
+        background-color: #fff;
+
+        @media screen and (max-width:1439px) {
+            background-color: #ececec;
+
+        }
+    }
+}

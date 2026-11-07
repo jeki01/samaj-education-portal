@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+input[type="number"]::-webkit-inner-spin-button {
+  display: none;
+}
+
+* {
+  font-family: "Inter", sans-serif;
+
+  &::-webkit-scrollbar {
+    /* width: 5px; */
+    /* background: transparent; */
+  }
+
+  &::-webkit-scrollbar-track {
+    width: 5px;
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    width: 5px;
+    border-radius: 25px;
+    background-color: rgb(207 209 221);
+  }
+}
+
+.ck-content.ck-editor__editable {
+  padding: 1rem 2rem !important;
+  max-height: 250px;
+}
+
+.ck-editor {
+  * {
+    font-size: revert;
+    font-weight: revert;
+  }
+
+  h1 {
+    font-weight: 700;
+  }
+}

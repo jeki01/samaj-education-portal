@@ -1,0 +1,60 @@
+.otp-page-base {
+    width: 447px;
+    background-color: #fff;
+    border-radius: 38px;
+    padding: 30px;
+    height: 100%;
+    max-height: 580px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    /* resp width */
+    @media screen and (max-width:768px) {
+        margin: 0;
+        border-radius: 24px;
+    }
+}
+
+.otp-page-img-wrapper {
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+
+    /* resp height */
+    @media screen and (max-height:800px) {
+        svg {
+            width: 60%;
+            height: auto;
+            margin: auto;
+        }
+    }
+}
+
+.otp-title {
+    font-weight: bold;
+    font-size: 25px;
+    text-align: center;
+
+    span {
+        color: #9533FB;
+    }
+}
+
+.otp-info {
+    font-size: 16px;
+    text-align: center;
+}
+
+.otp-option {
+    font-size: 13px;
+    font-weight: 400;
+    text-align: center;
+    margin-bottom: 1rem;
+
+    button {
+        color: #9533FB;
+        font-weight: bold;
+    }
+}

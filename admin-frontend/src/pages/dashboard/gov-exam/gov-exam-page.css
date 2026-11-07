@@ -1,0 +1,237 @@
+.stepper-body {
+    max-width: 90%;
+    margin: auto;
+}
+
+.step-one-base {
+    margin: 24px auto;
+    max-width: 962px;
+}
+
+.test-count {
+    box-shadow: 0 0 10px #00000026;
+    width: fit-content;
+    padding: 4px;
+    border-radius: 4px;
+    margin-top: 12px;
+}
+
+.step-course-type-base {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin: 2rem 0;
+}
+
+.step-course-type-btn {
+    border: 1px solid #6633CC;
+    border-radius: 6px;
+    height: 30px;
+    text-align: center;
+    font-weight: 500;
+    color: #6633CC;
+    min-width: 200px;
+    text-transform: capitalize;
+}
+
+.step-course-type-btn.active {
+    background-color: #9533FB;
+    color: #fff;
+}
+
+.marking-section {
+    display: flex;
+    align-items: center;
+    /* justify-content: space-between; */
+    max-width: 90%;
+    margin: 2rem auto;
+    gap: 1rem;
+
+    @media screen and (max-width:1745px) {
+        flex-wrap: wrap;
+
+    }
+
+}
+
+.max-marks,
+.neg-marks {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    /* min-width: 580px; */
+
+    button {
+        background-color: #9533FB;
+        color: #fff;
+        font-weight: bold;
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-bottom: 2px;
+    }
+
+    .neg-mark-input {
+        box-shadow: 0 0 10px #00000026;
+        border-radius: 6px;
+        font-size: 14px;
+        height: 36px;
+        min-width: 100px;
+    }
+}
+
+.max-marks-text {
+    color: #F71818;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.max-marks-text--note {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.neg-marks-text {
+    color: #F71818;
+    font-size: 14px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+}
+
+.step-checkbox {
+    min-width: 43%;
+}
+
+.validity-days-preview {
+    svg {
+        width: 20px;
+    }
+}
+
+.count-box {
+    padding: .5rem 1rem;
+    min-width: 60px;
+    box-shadow: 0 0 10px #00000026;
+    border-radius: 6px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+
+    input {
+        width: 32px;
+        font-weight: 700;
+        outline: none;
+        text-align: center;
+
+        &:disabled {
+            background-color: #fff;
+        }
+    }
+
+    span {
+        font-weight: 700;
+    }
+}
+
+.video-course-list-body,
+.test-course-list-body {
+    height: 238px;
+    overflow-y: scroll;
+    margin-right: -11px;
+    padding-right: 6px;
+
+
+    &::-webkit-scrollbar {
+        width: 5px;
+        background: transparent;
+    }
+
+    &::-webkit-scrollbar-track {
+        background-color: #fff;
+        width: 5px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: #d8d8d8;
+        border-radius: 25px;
+    }
+}
+
+.course-content-description {
+    height: 216px;
+    overflow-y: scroll;
+    margin-right: -11px;
+    padding-right: 6px;
+
+    *{
+        list-style-type: revert;
+        padding: revert;
+    }
+
+
+    &::-webkit-scrollbar {
+        width: 5px;
+        background: transparent;
+    }
+
+    &::-webkit-scrollbar-track {
+        background-color: #fff;
+        width: 5px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: #d8d8d8;
+        border-radius: 25px;
+    }
+}
+
+.save-percentage-btn {
+    color: #fff;
+    background-color: #6633CC;
+    padding: .5rem 1.5rem;
+    border-radius: 25px;
+}
+
+.course-test-time {
+    display: flex;
+    align-items: center;
+}
+
+.test-time-input {
+    box-shadow: 0 0 10px #00000026;
+    border-radius: 6px;
+    font-size: 14px;
+    height: 36px;
+    min-width: 100px;
+}
+
+.sample-file-download-btn {
+    background-image: linear-gradient(180deg, #6633CC, #9933FF);
+    height: 26px;
+    width: fit-content;
+    color: #fff;
+    border-radius: 16px;
+    font-weight: 400;
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+}
+
+.marking-row{
+    .marking-para{
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: .5rem;
+
+        span{
+            font-size: 14px;
+        }
+    }
+}

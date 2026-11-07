@@ -1,0 +1,114 @@
+.course-list-page-head {
+    display: flex;
+    justify-content: space-between;
+    padding: 24px 12px;
+    gap: 24px;
+}
+
+.course-filter-btn {
+    color: #313E3B;
+    font-size: 14px;
+    font-weight: 500;
+    background-color: #FAFAFA;
+    height: 54px;
+    width: 100%;
+    border: 1px solid #E3E3E3;
+    border-radius: 10px;
+}
+
+.course-filter-btn.selected {
+    border: 1px solid #6633CC;
+    background-color: #6633CC0D;
+}
+
+.course-filter-btn.active {
+    border: 1px solid #6633CC;
+    color: #fff;
+    background-image: linear-gradient(45deg, #6934CF, #9634FC);
+}
+
+.course-filter-btn.inactive {
+    background-color: gray;
+    cursor: not-allowed;
+    color: #fff;
+}
+
+.published-status {
+    background-color: #4FDF7A;
+    border-radius: 25px;
+    height: 32px;
+    width: fit-content;
+    padding: 0 24px;
+}
+
+.published-status-inactive {
+    background-color: #FF0000;
+    border-radius: 25px;
+    height: 32px;
+    width: fit-content;
+    padding: 0 24px;
+    color: #fff;
+}
+
+.gov--course--list--item---cell-comp {
+    flex: 1;
+
+    &:first-child {
+        max-width: 50px;
+    }
+
+    &:last-child {
+        max-width: 150px;
+    }
+
+    /* justify-content: flex-start; */
+    @media screen and (max-width:1340px) {
+        font-size: 14px;
+    }
+}
+
+.course--list--head {
+    flex: 1;
+
+    &:first-child {
+        max-width: 50px;
+    }
+
+    &:last-child {
+        max-width: 150px;
+    }
+
+    @media screen and (max-width:1340px) {
+        font-size: 14px;
+    }
+}
+
+.gov--course--base {}
+
+.gov--course--table-body {
+    min-height: calc(100vh - 312px);
+    /* min-height: 100%; */
+}
+
+.gov-course-list-body-comp {
+    height: calc(100vh - 280px);
+    overflow-y: scroll;
+    margin-right: -11px;
+    padding-right: 6px;
+
+
+    &::-webkit-scrollbar {
+        width: 5px;
+        background: transparent;
+    }
+
+    &::-webkit-scrollbar-track {
+        background-color: #fff;
+        width: 5px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: #d8d8d8;
+        border-radius: 25px;
+    }
+}

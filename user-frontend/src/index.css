@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+input[type="number"]::-webkit-inner-spin-button {
+    display: none;
+}
+
+* {
+    font-family: "Inter", sans-serif;
+}
+
+.common-btn-ui {
+    background-image: linear-gradient(135deg, #6934CF, #9634FC);
+    box-shadow: 0 4px 20px rgba(149, 51, 251, 0.35);
+    color: #fff;
+    height: 52px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 15px;
+    letter-spacing: 0.3px;
+    cursor: pointer;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+
+    &:hover:not(:disabled) {
+        transform: translateY(-1px);
+        box-shadow: 0 8px 26px rgba(149, 51, 251, 0.45);
+    }
+
+    &:active:not(:disabled) {
+        transform: translateY(0);
+        box-shadow: 0 4px 16px rgba(149, 51, 251, 0.3);
+    }
+
+    /* resp height */
+    @media screen and (max-height: 800px) {
+        height: 46px;
+        font-size: 14px;
+    }
+
+    &:disabled {
+        background-image: none;
+        background-color: #c4c4d0;
+        box-shadow: none;
+        cursor: not-allowed;
+    }
+}
+
+.common-btn-ui.disabled {
+    background-image: none;
+    background-color: #c4c4d0;
+    box-shadow: none;
+    cursor: not-allowed;
+}
+
+.field-error-msg {
+    color: #e53935;
+    font-size: 11.5px;
+    font-weight: 500;
+    padding-left: 4px;
+    margin-top: 4px;
+}
+
+input {
+    font-size: 14px;
+
+    &::placeholder {
+        color: #a0a0b0;
+        font-weight: 400;
+    }
+}
+
+.select-listbox {
+    [role="option"] {
+        outline: none !important;
+    }
+}

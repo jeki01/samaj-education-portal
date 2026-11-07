@@ -1,0 +1,19 @@
+.forget-password-redirect-link {
+    color: #9533FB;
+    font-size: 13px;
+    font-weight: 600;
+    transition: opacity 0.15s;
+
+    &:hover {
+        opacity: 0.75;
+        text-decoration: underline;
+    }
+}
+
+.login-bottom-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 14px;
+    width: 100%;
+}

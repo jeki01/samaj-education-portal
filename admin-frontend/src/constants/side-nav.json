@@ -1,0 +1,80 @@
+[
+    {
+        "id":1,
+        "name":"Course Type",
+        "icon_path":"/dashboard/course.svg",
+        "page_path":"course",
+        "fill_icon":"/dashboard/course-fill.svg",
+        "subLink": []
+    },
+    {
+        "id":2,
+        "name":"Subject types",
+        "icon_path":"/dashboard/courses-book.svg",
+        "page_path":"subject-types",
+        "fill_icon":"/dashboard/course-fill.svg",
+        "subLink": []
+    },
+    {
+        "id":3,
+        "name":"Courses",
+        "icon_path":"/dashboard/courses-book.svg",
+        "page_path":"courses",
+        "fill_icon":"/dashboard/course-fill.svg",
+        "subLink": [
+            {
+                "name": "Gov exam",
+                "head_name":"Government exams courses",
+                "link": "/gov-exam",
+                "Icon": null,
+                "icon_path":"",
+                "page_path":"gov-exam",
+                "fill_icon":""
+            },
+             {
+                "name": "Competition exam",
+                "head_name":"Competition exams courses",
+                "link": "/competition-exam",
+                "Icon": null,
+                "icon_path":"",
+                "page_path":"competition-exam",
+                "fill_icon":""
+            }
+        ]
+    },
+    {
+        "id":5,
+        "name":"Users",
+        "icon_path":"/dashboard/courses-book.svg",
+        "page_path":"users",
+        "fill_icon":"/dashboard/course-fill.svg",
+        "subLink": []
+    },
+    {
+        "id":4,
+        "name":"Skills",
+        "icon_path":"/dashboard/courses-book.svg",
+        "page_path":"skills",
+        "fill_icon":"/dashboard/course-fill.svg",
+        "subLink": [
+            {
+                "name": "Course",
+                "head_name":"Skill Courses",
+                "link": "/skill-course",
+                "Icon": null,
+                "icon_path":"",
+                "page_path":"skill-course",
+                "fill_icon":""
+            },
+            {
+                "name": "Bundle",
+                "head_name":"Skill Bundle",
+                "link": "/skill-bundle",
+                "Icon": null,
+                "icon_path":"",
+                "page_path":"skill-bundle",
+                "fill_icon":""
+            }
+        ]
+    }
+]

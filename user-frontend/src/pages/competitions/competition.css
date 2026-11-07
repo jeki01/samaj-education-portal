@@ -1,0 +1,381 @@
+.competition-btn {
+    box-shadow: 0 3px 22px #9533FB33;
+    background-color: #ffffff;
+    height: 45px;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: bold;
+    width: 50%;
+
+    @media screen and (max-width:768px) {
+        font-size: 14px;
+        font-weight: 600;
+    }
+}
+
+.competition-btn.active {
+    background-color: #9435FA;
+    color: #ffffff;
+}
+
+
+.scheduled-list-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: .8rem 1rem;
+    background-color: #F7F1FF;
+    margin: 1rem 0;
+    border-radius: 7px;
+
+    @media screen and (max-width:768px) {
+        gap: 4px;
+    }
+
+    &>div {
+
+        &:nth-child(1),
+        &:nth-child(2),
+        &:nth-child(3) {
+            flex: 1;
+        }
+
+        &:nth-child(4) {
+            flex: 1;
+            max-width: 150px;
+
+            @media screen and (max-width:768px) {
+                display: none;
+            }
+        }
+
+        &:nth-child(2),
+        &:nth-child(3) {
+            @media screen and (max-width:768px) {
+                display: none;
+            }
+        }
+
+        &:nth-child(2) {
+            @media screen and (max-width:1340px) {
+                text-align: center;
+            }
+        }
+
+    }
+
+    &>div.completed-test-score {
+        display: block;
+        @media screen and (max-width:525px) {
+            display: none;
+        }
+        @media screen and (min-width:526px) and (max-width:768px) {
+            display: flex;
+            justify-content: center;
+        }
+    }
+
+    .completed-test-details {
+        @media screen and (max-width:768px) {
+            flex: none !important;
+        }
+    }
+
+    .completed-test-count {
+        @media screen and (max-width:768px) {
+            display: flex !important;
+            justify-content: center;
+            flex: none !important;
+        }
+    }
+
+    .test-score-mob {
+        display: none;
+
+        @media screen and (max-width:525px) {
+            display: block;
+        }
+    }
+
+    .scheduled-val {
+        color: #888888;
+        font-size: 12px;
+        font-weight: 600;
+
+        @media screen and (max-width:768px) {
+            font-size: 10px;
+        }
+    }
+
+    .item-details {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+
+        @media screen and (max-width:768px) {
+            align-items: flex-start;
+        }
+
+        .item-content {
+            .item-name {
+                font-weight: 600;
+
+                @media screen and (max-width:768px) {
+                    font-size: 14px;
+                    max-width: 120px;
+                }
+            }
+
+            .item-count-base {
+                display: flex;
+                gap: 6px;
+
+                .item-que-count,
+                .item-time {
+                    color: #888888;
+                    font-size: 12px;
+                }
+            }
+        }
+    }
+
+    .score {
+        background-color: #00BD58;
+        color: #fff;
+        font-size: 12px;
+        padding: .2rem .6rem;
+        border-radius: 2px;
+        max-width: fit-content;
+
+        @media screen and (max-width:768px) {
+            font-size: 10px;
+        }
+    }
+
+    .action {
+        background-image: linear-gradient(#9533FB, #6633CC);
+        color: #fff;
+        border-radius: 5px;
+        padding: 8px 20px;
+        font-size: 14px;
+        font-weight: 500;
+        white-space: nowrap;
+
+        @media screen and (max-width:525px) {
+            padding: 8px 10px;
+            font-size: 10px;
+            min-width: 50px;
+            height: 31px;
+        }
+    }
+
+    .action.disabled {
+        background-image: none;
+        background-color: #808080;
+        color: #ffffff;
+        cursor: not-allowed;
+    }
+}
+
+.scheduled-test-name {
+    font-weight: 600;
+    color: #646464;
+}
+
+.scheduled-test-card {
+    height: 150px;
+    background: #6633CC;
+    background-image: url("/scheduled-test-card.svg");
+    border-radius: 8px;
+    display: flex;
+
+    @media screen and (min-width:375px) and (max-width:768px) {
+        height: 120px;
+    }
+
+    @media screen and (max-width:374px) {
+        height: 100px;
+    }
+}
+
+.scheduled-test__content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2rem;
+
+    @media screen and (max-width:768px) {
+        padding: 1rem;
+    }
+}
+
+.scheduled-test__image {
+    flex: 1;
+
+    img {
+        height: 100%;
+        transform: scale(1.18);
+    }
+}
+
+.scheduled-test__text {
+    font-weight: 600;
+    color: #fff;
+    font-size: 22px;
+
+    @media screen and (min-width:375px) and (max-width:768px) {
+        font-size: 18px;
+    }
+
+    @media screen and (max-width:374px) {
+        font-size: 13px;
+    }
+}
+
+.scheduled-test__amount {
+    font-weight: 600;
+    color: #fff;
+    font-size: 32px;
+
+    @media screen and (max-width:768px) {
+        font-size: 24px;
+    }
+}
+
+.scheduled-test-enroll-btn {
+    background-color: #9435FA;
+    box-shadow: 0 3px 22px #9533FB33;
+    color: #fff;
+    height: 48px;
+    border-radius: 8px;
+    width: 100%;
+    margin: auto;
+    padding: 0 4rem;
+}
+
+.scheduled-test__note {
+    font-size: 14px;
+    color: #9A9A9A;
+    font-weight: 500;
+
+    @media screen and (max-width:768px) {
+        font-size: 12px;
+    }
+}
+
+.scheduled-test-payment-details {
+    background-color: #9533FB33;
+    border: 1px solid #9533FB;
+    border-radius: 15px;
+    padding: 1rem;
+}
+
+.your-wallet-balance {
+    color: #6633CC;
+    font-size: 18px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    @media screen and (min-width:375px) and (max-width:768px) {
+        font-size: 14px;
+    }
+
+    @media screen and (max-width:374px) {
+        font-size: 13px;
+    }
+}
+
+.net-payable {
+    font-size: 18px;
+    font-weight: 500;
+
+    @media screen and (min-width:375px) and (max-width:768px) {
+        font-size: 14px;
+    }
+
+    @media screen and (max-width:374px) {
+        font-size: 13px;
+    }
+
+    span {
+        font-weight: 600;
+        color: #6633CC;
+    }
+}
+
+.scheduled-test-referral-rewards {
+    background-color: #EAFBF1;
+    border: 2px dashed #35BA8F;
+    border-radius: 15px;
+    padding: 1rem;
+}
+
+.referral-rewards-header {
+    color: #28BE98;
+    font-size: 18px;
+    font-weight: 600;
+
+    @media screen and (min-width:375px) and (max-width:768px) {
+        font-size: 16px;
+    }
+
+    @media screen and (max-width:374px) {
+        font-size: 13px;
+    }
+}
+
+.referral-rewards-details {
+    font-weight: 600;
+
+    @media screen and (min-width:375px) and (max-width:768px) {
+        font-size: 14px;
+    }
+
+    @media screen and (max-width:374px) {
+        font-size: 12px;
+    }
+
+    span {
+        font-weight: 500;
+        color: #28BE98;
+    }
+}
+
+.referral-rewards-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.test-duration-mob {
+    display: none;
+
+    @media screen and (max-width:768px) {
+        display: block;
+    }
+}
+
+.schedule-action-wrapper {
+    /* flex items-center gap-x-4 */
+    display: flex;
+    align-items: center;
+    gap: 16px;
+
+    @media screen and (max-width:525px) {
+        flex-direction: column;
+    }
+}
+
+.completed-action-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+
+    @media screen and (max-width:525px) {
+        flex-direction: column;
+    }
+}

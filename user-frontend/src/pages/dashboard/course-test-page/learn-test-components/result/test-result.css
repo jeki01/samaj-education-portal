@@ -1,0 +1,111 @@
+.result-score-card {
+    @media screen and (max-width:767px) {
+        padding: 0;
+        flex-direction: column-reverse;
+    }
+}
+
+.result-score-card {
+    @media screen and (max-height:867px) {
+        /* height: 220px; */
+        height: auto;
+    }
+
+    @media screen and (max-width:768px) {
+        .icon-box {
+            svg {
+
+                width: 26px;
+                height: 24px;
+            }
+        }
+    }
+
+}
+
+.result-score-card-img {
+    
+    @media screen and (max-width:768px) {
+        max-width: 212px;
+    }
+    @media screen and (max-height:667px) {
+        width: 52%;
+        max-width: 212px;
+    }
+
+    @media screen and (min-width:768px) and (min-height:667px) and (max-height:900px) {
+        width: 24%;
+    }
+}
+
+.result-score-divider {
+    @media screen and (max-height:867px) {
+        margin-top: 8px;
+        margin-bottom: 8px;
+    }
+
+    @media screen and (max-width:768px) {
+        margin: 16px 0;
+    }
+}
+
+.score-title {
+    @media screen and (min-width:768px) and (max-width:1024px) {
+        font-size: 20px;
+    }
+
+    @media screen and (max-width:768px) {
+        font-size: 18px;
+    }
+}
+
+
+.score-val {
+    @media screen and (max-width:768px) {
+        font-size: 16px;
+
+        &.score--percentage {
+            width: fit-content;
+            border-radius: 10px;
+            padding: 8px;
+        }
+    }
+}
+
+.result-score-detail-box {
+    @media screen and (max-width:768px) {
+        width: 100%;
+    }
+}
+
+.score-breakdown {
+    @media screen and (max-width:768px) {
+        /* margin-top: auto; */
+        padding-bottom: 8px;
+    }
+}
+
+.score-breakdown--final-percentage {
+
+    /* small device */
+    @media screen and (max-width:400px) {
+        width: 80%;
+    }
+}
+
+.my-learning-test-result-cta {
+    @media screen and (max-width:768px) {
+        padding: 8px;
+        height: auto;
+        border-radius: 8px;
+        max-width: 250px;
+        width: 100%;
+        font-size: 14px;
+    }
+}
+
+.my-learning-test-result-cta-base {
+    @media screen and (max-width:768px) {
+        margin-bottom: 2rem;
+    }
+}

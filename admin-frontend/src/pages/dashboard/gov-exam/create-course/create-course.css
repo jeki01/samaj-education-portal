@@ -1,0 +1,176 @@
+.create-course-base {
+    background-color: #fff;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    min-height: 97%;
+}
+
+.create-course-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px;
+}
+
+.create-course-title {
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.create-course-cancel-btn {
+    svg {
+        width: 30px;
+        height: 30px;
+    }
+}
+
+/* course Form */
+
+.create-course-form {
+    max-width: 1168px;
+    margin: auto;
+}
+
+.create-course-validity-text {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.create-course-count-base {
+    margin: 24px 0;
+    justify-content: center;
+    align-items: center;
+}
+
+.create-course-validity-base {
+    display: flex;
+    gap: 12px;
+    padding: 8px 16px;
+    border-radius: 6px;
+    align-items: center;
+
+    button {
+        background-color: #9533FB;
+        color: #fff;
+        font-weight: bold;
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-bottom: 2px;
+    }
+}
+
+.create-course-price-base {
+    display: flex;
+    gap: 12px;
+    /* box-shadow: 0 0 10px #00000026; */
+    padding: 8px 16px;
+    border-radius: 6px;
+    align-items: center;
+
+    button {
+        background-color: #9533FB;
+        color: #fff;
+        font-weight: bold;
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-bottom: 2px;
+    }
+}
+
+.create-course-validity-count {
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.create-course-validity-day {
+    font-size: 16px;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+
+/*  */
+.create-course-image-base {
+    margin: 12px 0;
+}
+
+.create-course-image-uploader {
+    border: 1px dashed #45A9EA;
+    height: 207px;
+    background-color: #EEF8FF;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.create-course-image-label {
+    margin-bottom: 8px;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.create-course-image-input-label {
+    color: #4D4D4D;
+    font-size: 16px;
+}
+
+.create-course-image-input-btn {
+    background-color: #9533FB;
+    color: #fff;
+    border-radius: 6px;
+    width: fit-content;
+    height: 40px;
+    padding: 7px 18px;
+    text-transform: capitalize;
+}
+
+.create-course-image-file-input {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.create-course-desc {
+    width: 100%;
+    border: 1px solid #70707099;
+    border-radius: 6px;
+    padding: 1rem;
+}
+
+.create-course-validity-input {
+    box-shadow: 0 0 10px #00000026;
+    display: flex;
+    align-items: center;
+    height: 50px;
+    padding-right: 1rem;
+    border-radius: 6px;
+}
+
+.subject--name {
+    [data-slot="value"] {
+        color: #6633CC;
+    }
+}
+
+.course-expiry-date{
+    display: flex;
+    align-items: center;
+    max-width: fit-content;
+    margin: auto;
+}
+.course-expiry-datepicker {
+    thead{
+        box-shadow: none;
+    }
+}

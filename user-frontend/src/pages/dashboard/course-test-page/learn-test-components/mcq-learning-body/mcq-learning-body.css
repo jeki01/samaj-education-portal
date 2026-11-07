@@ -1,0 +1,58 @@
+.question--bar {
+    @media screen and (max-height:700px) {
+        .question--no {
+            font-size: 20px;
+        }
+
+        .question--name {
+            font-size: 20px;
+        }
+
+    }
+}
+
+.option-container {
+    max-height: calc(100% - 184px);
+    overflow-y: scroll;
+
+    &::-webkit-scrollbar {
+        width: 6px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: #b984ff66;
+        border-radius: 4px;
+    }
+
+    &::-webkit-scrollbar-track {
+        background-color: #fff;
+        border-radius: 4px;
+    }
+}
+
+.question--no {
+    @media screen and (max-width:768px) {
+        font-size: 18px;
+    }
+}
+
+.test-top-info-bar-base {
+    @media screen and (max-width:768px) {
+        height: auto;
+    }
+}
+
+.test-option-wrapper{
+    width: calc(100% - 30px);
+}
+
+.test-option-text{
+    width: calc(100% - 30px);
+}
+
+.check-box-indicator{
+    @media screen and (max-width:768px) {
+        margin-top: auto;
+        margin-bottom: auto;
+    }
+}

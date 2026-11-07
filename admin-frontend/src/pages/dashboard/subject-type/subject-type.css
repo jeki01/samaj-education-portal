@@ -1,0 +1,30 @@
+.subject-type-list-body {
+    height: calc(100vh - 300px);
+    overflow-y: scroll;
+    margin-right: -11px;
+    padding-right: 6px;
+
+
+    &::-webkit-scrollbar {
+        width: 5px;
+        background: transparent;
+    }
+
+    &::-webkit-scrollbar-track {
+        background-color: #fff;
+        width: 5px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: #d8d8d8;
+        border-radius: 25px;
+    }
+}
+
+.subject--table--body--base{
+        min-height: calc(100vh - 200px);
+}
+
+.subject--table{
+       height: calc(100vh - 120px);
+}

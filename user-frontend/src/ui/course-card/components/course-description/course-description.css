@@ -1,0 +1,23 @@
+.course-desc-base-wrapper{
+    &>div{
+        padding: 0%;
+        width: 98%;
+    }
+}
+
+.course-desc-trigger {
+    background-color: #fff;
+    border: 1px solid #EBD8FF;
+    padding: .7rem 1rem;
+    border-radius: 10px;
+    font-weight: 600;
+}
+
+.course-desc-base {
+    section {
+        background-color: #fff;
+        border: 1px solid #EBD8FF;
+        padding: .7rem 1rem;
+        border-radius: 10px;
+    }
+}

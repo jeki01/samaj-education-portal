@@ -1,0 +1,17 @@
+.course-categories-tabs-base {
+    width: 100%;
+}
+
+.course-categories-tablist {
+    width: 100%;
+    gap: 0;
+
+    button {
+        border-bottom: 1px solid #7B7880;
+
+        span[data-slot="cursor"]{
+            bottom: -1px;
+            width: 100%;
+        }
+    }
+}

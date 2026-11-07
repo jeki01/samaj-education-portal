@@ -1,0 +1,48 @@
+.user--role--msg {
+    width: fit-content;
+    max-width: 80%;
+    text-align: end;
+    padding: .5rem 1rem;
+    border-radius: 12px;
+    background-color: #eaeaea;
+    color: #767676;
+    margin-left: auto;
+    margin-top: 4px;
+    margin-bottom: 4px;
+    font-size: 14px;
+}
+
+.assistant--role--msg {
+    font-size: 14px;
+    margin-top: 4px;
+    margin-bottom: 4px;
+    color: #4e4c4c;
+
+    * {
+        list-style-type: revert;
+        padding: revert;
+    }
+}
+
+.chat-box-wrapper {
+    border: 1px solid #ccc;
+    padding: 6px;
+    border-radius: 8px;
+}
+
+.chat-box-input-wrapper {
+    border-radius: 10px;
+    padding: .4rem;
+    background-color: #f7f7f7;
+    margin: 1rem 0;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+
+    input {
+        width: 90%;
+        padding: .5rem;
+        background: transparent;
+        outline: none;
+    }
+}

@@ -1,0 +1,188 @@
+.layout-sidebar {
+    box-shadow: 0 14px 42px 0 #080F340F;
+    /* overflow-y: scroll; */
+    /* need comfirmation on it scroll padding */
+    overflow-y: hidden;
+    transition: all .3s ease-in-out;
+    z-index: 30;
+
+    @media screen and (min-width:768px) and (max-width:1024px) {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 280px;
+        height: 100%;
+        padding: 0%;
+        transform: translateX(-240px);
+        margin-left: -100%;
+
+        .content__wrapper {
+            width: 100%;
+
+            .logo__header {
+                padding: 0;
+            }
+        }
+    }
+
+    @media screen and (max-width:768px) {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        padding: 0%;
+
+        .content__wrapper {
+            width: 100%;
+
+            .logo__header {
+                padding: 0 20px;
+            }
+        }
+    }
+
+
+    @media screen and (max-width:768px) {
+        transform: translateX(-240px);
+        margin-left: -100%;
+    }
+
+    &::-webkit-scrollbar {
+        width: 5px;
+        background: transparent;
+    }
+
+    &::-webkit-scrollbar-track {
+        width: 5px;
+        background: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: #D5D5D5;
+        border-radius: 25px;
+    }
+}
+
+.layout-sidebar.open {
+    margin: 0;
+    padding: 20px 0;
+    transform: translateX(0);
+
+    @media screen and (min-width:768px) and (max-width:1024px) {
+        padding: 20px;
+
+    }
+}
+
+.sidebar__link__hover {
+    @media screen and (max-width:768px) {
+        padding: 11px 20px;
+        height: 50px;
+    }
+
+    &:hover {
+        /* padding: 8px 11px; */
+        background-color: #9533FB;
+
+        svg {
+            path {
+                /* fill: white; */
+                stroke: white;
+            }
+        }
+
+        div {
+            color: white;
+        }
+    }
+}
+
+.sidebar__link__hover.Scholarship,
+.sidebar__link__hover.invite-friend {
+    &:hover {
+        /* padding: 8px 11px; */
+        background-color: #9533FB;
+
+        svg {
+            path {
+                fill: white;
+                stroke: unset;
+            }
+        }
+
+        div {
+            color: white;
+        }
+    }
+}
+
+.sidebar__link__hover.active {
+    /* padding: 8px 11px; */
+    background-color: #9533FB;
+
+    svg {
+        path {
+            stroke: white;
+        }
+    }
+
+    div {
+        color: white;
+    }
+}
+
+.link__expand__icon {
+    svg {
+        width: 23px;
+    }
+}
+
+.logo__header {
+    .close--btn {
+        display: none;
+
+        @media screen and (max-width:1024px) {
+            display: block;
+        }
+    }
+}
+
+/* .menu__logout__btn {
+    @media screen and (max-width:768px) {
+        border: 1px solid #9533FB;
+        border-radius: 16px;
+        width: 128px;
+        justify-content: center;
+        padding: 8px 20px;
+        letter-spacing: 0.5px;
+
+        svg {
+            display: none;
+        }
+    }
+} */
+
+/* responsive */
+.layout-sidebar {
+
+    @media screen and (max-height:800px) and (min-width:768px) {
+        .content__wrapper {
+            gap: 14px;
+        }
+
+        .sidebar__link__hover {
+            height: 36px;
+        }
+    }
+}
+
+.account-switch-base .type-box-base {
+    width: 100%;
+    padding: 0 1rem;
+    height: 220px;
+}
+
+.account-switch-base .type-box-title {
+    font-size: 18px;
+}

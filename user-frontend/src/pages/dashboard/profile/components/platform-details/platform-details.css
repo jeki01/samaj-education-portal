@@ -1,0 +1,40 @@
+.platform-details-base {
+    margin-top: 1rem;
+}
+
+.platform-details-container {
+    margin: 1rem 0;
+
+    .verify-btn {
+        font-size: 12px;
+        font-weight: 600;
+        color: #259800;
+        display: flex;
+        align-items: center;
+        gap: 4px;
+    }
+
+    .change-pass-btn {
+        font-size: 12px;
+        font-weight: 600;
+        color: #9533FB;
+        text-decoration: underline;
+        text-underline-offset: 4px;
+        white-space: nowrap;
+    }
+
+    .input-field {
+        box-shadow: 0 0 4px 1px #9533FB33;
+
+        /* resp height */
+        @media screen and (max-height:800px) {
+            height: 42px;
+        }
+    }
+}
+
+.profile--pass--field{
+    svg{
+        width: 24px;
+    }
+}

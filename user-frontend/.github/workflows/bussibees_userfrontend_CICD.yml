@@ -1,0 +1,220 @@
+name: bussibees_userfrontend CI/CD
+
+on:
+  push:
+    branches:
+      - dev
+      - uat
+      - main
+
+env:
+  IMAGE_NAME: bussibees_userfrontend
+
+jobs:
+
+# =================================
+# BUILD AND PUSH DOCKER IMAGE
+# =================================
+
+  build-and-push:
+
+    runs-on: ubuntu-latest
+
+    outputs:
+      image_tag: ${{ steps.meta.outputs.image_tag }}
+
+    steps:
+
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+
+      - name: Set image tag
+        id: meta
+        run: |
+          echo "image_tag=${GITHUB_SHA}" >> $GITHUB_OUTPUT
+
+
+      - name: Set Base URL
+        id: baseurl
+        run: |
+          if [[ "${GITHUB_REF}" == "refs/heads/dev" ]]; then
+            echo "BASE_URL=${{ secrets.VITE_BASE_URL_DEV }}" >> $GITHUB_ENV
+          elif [[ "${GITHUB_REF}" == "refs/heads/uat" ]]; then
+            echo "BASE_URL=${{ secrets.VITE_BASE_URL_UAT }}" >> $GITHUB_ENV
+          else
+            echo "BASE_URL=${{ secrets.VITE_BASE_URL_PROD }}" >> $GITHUB_ENV
+          fi
+
+
+      - name: Set Media URL
+        run: |
+          if [[ "${GITHUB_REF}" == "refs/heads/dev" ]]; then
+            echo "MEDIA_URL=${{ secrets.VITE_BASE_URL_MEDIA_DEV }}" >> $GITHUB_ENV
+          elif [[ "${GITHUB_REF}" == "refs/heads/uat" ]]; then
+            echo "MEDIA_URL=${{ secrets.VITE_BASE_URL_MEDIA_UAT }}" >> $GITHUB_ENV
+          else
+            echo "MEDIA_URL=${{ secrets.VITE_BASE_URL_MEDIA_PROD }}" >> $GITHUB_ENV
+          fi
+
+
+      - name: Set AI Key
+        run: |
+          if [[ "${GITHUB_REF}" == "refs/heads/dev" ]]; then
+            echo "AI_KEY=${{ secrets.VITE_BASE_AI_KEY_DEV }}" >> $GITHUB_ENV
+          elif [[ "${GITHUB_REF}" == "refs/heads/uat" ]]; then
+            echo "AI_KEY=${{ secrets.VITE_BASE_AI_KEY_UAT }}" >> $GITHUB_ENV
+          else
+            echo "AI_KEY=${{ secrets.VITE_BASE_AI_KEY_PROD }}" >> $GITHUB_ENV
+          fi
+
+
+      - name: Setup Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+
+      - name: Login DockerHub
+        run: |
+          echo "${{ secrets.DOCKERHUB_TOKEN }}" | docker login \
+          -u "${{ secrets.DOCKERHUB_USERNAME }}" \
+          --password-stdin
+
+
+      - name: Build and push image
+        run: |
+          docker build \
+            --build-arg VITE_BASE_URL=$BASE_URL \
+            --build-arg VITE_BASE_URL_MEDIA=$MEDIA_URL \
+            --build-arg VITE_BASE_AI_KEY=$AI_KEY \
+            -t ${{ secrets.DOCKERHUB_USERNAME }}/${{ env.IMAGE_NAME }}:${{ steps.meta.outputs.image_tag }} .
+
+          docker push ${{ secrets.DOCKERHUB_USERNAME }}/${{ env.IMAGE_NAME }}:${{ steps.meta.outputs.image_tag }}
+
+
+
+# =================================
+# DEPLOY DEV
+# =================================
+
+  deploy-dev:
+
+    if: github.ref == 'refs/heads/dev'
+    needs: build-and-push
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: Deploy DEV
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.DEV_HOST }}
+          username: ${{ secrets.DEV_USER }}
+          key: ${{ secrets.DEV_SSH_KEY }}
+          port: ${{ secrets.DEV_PORT }}
+
+          script: |
+
+            cd /home/ubuntu/Dev-projects/Bussibees-code/Frontend/User
+
+            export DOCKERHUB_USERNAME=${{ secrets.DOCKERHUB_USERNAME }}
+            export IMAGE_TAG=${{ needs.build-and-push.outputs.image_tag }}
+
+            echo "${{ secrets.DOCKERHUB_TOKEN }}" | docker login \
+            -u "${{ secrets.DOCKERHUB_USERNAME }}" \
+            --password-stdin
+
+            docker compose pull bussibees_userfrontend
+
+            docker compose stop bussibees_userfrontend || true
+
+            docker compose rm -f bussibees_userfrontend || true
+
+            docker compose up -d bussibees_userfrontend
+
+            docker image prune -f
+
+
+
+# =================================
+# DEPLOY UAT
+# =================================
+
+  deploy-uat:
+
+    if: github.ref == 'refs/heads/uat'
+    needs: build-and-push
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: Deploy UAT
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.UAT_HOST }}
+          username: ${{ secrets.UAT_USER }}
+          key: ${{ secrets.UAT_SSH_KEY }}
+          port: ${{ secrets.UAT_PORT }}
+
+          script: |
+
+            cd /home/ubuntu/Bussibees-code/Frontend/User
+
+            export DOCKERHUB_USERNAME=${{ secrets.DOCKERHUB_USERNAME }}
+            export IMAGE_TAG=${{ needs.build-and-push.outputs.image_tag }}
+
+            echo "${{ secrets.DOCKERHUB_TOKEN }}" | docker login \
+            -u "${{ secrets.DOCKERHUB_USERNAME }}" \
+            --password-stdin
+
+            docker compose pull bussibees_userfrontend
+
+            docker compose stop bussibees_userfrontend || true
+
+            docker compose rm -f bussibees_userfrontend || true
+
+            docker compose up -d bussibees_userfrontend
+
+            docker image prune -f
+
+
+
+# =================================
+# DEPLOY PROD
+# =================================
+
+  deploy-prod:
+
+    if: github.ref == 'refs/heads/main'
+    needs: build-and-push
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: Deploy PROD
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.PROD_HOST }}
+          username: ${{ secrets.PROD_USER }}
+          key: ${{ secrets.PROD_SSH_KEY }}
+          port: ${{ secrets.PROD_PORT }}
+
+          script: |
+
+            cd /opt/bussibees/user
+
+            export DOCKERHUB_USERNAME=${{ secrets.DOCKERHUB_USERNAME }}
+            export IMAGE_TAG=${{ needs.build-and-push.outputs.image_tag }}
+
+            echo "${{ secrets.DOCKERHUB_TOKEN }}" | docker login \
+            -u "${{ secrets.DOCKERHUB_USERNAME }}" \
+            --password-stdin
+
+            docker compose pull bussibees_userfrontend
+
+            docker compose stop bussibees_userfrontend || true
+
+            docker compose rm -f bussibees_userfrontend || true
+
+            docker compose up -d bussibees_userfrontend
+
+            docker image prune -f

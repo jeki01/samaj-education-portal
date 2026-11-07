@@ -1,0 +1,66 @@
+.submit-test-container {
+    box-shadow: 0 0 48px 0 #00000012;
+}
+
+.default--count {
+    background-color: #A8A8A8;
+}
+
+.completed--count {
+    background-color: #259800;
+
+}
+
+.marked-later--count {
+    background-color: #6633CC;
+}
+
+.question-count {
+    @media screen and (max-height:700px) {
+        width: 34px;
+        height: 34px;
+    }
+
+    @media screen and (max-width:768px) {
+        width: 30px;
+        height: 30px;
+        font-size: 10px;
+    }
+}
+
+.counting--box {
+    height: 100%;
+    overflow-y: scroll;
+    align-content: start;
+
+    &::-webkit-scrollbar {
+        width: 5px;
+        background: transparent;
+    }
+
+    &::-webkit-scrollbar-track {
+        width: 5px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: gainsboro;
+    }
+}
+
+.test-paper-img-wrapper {
+    background-image: linear-gradient(-90deg, #9933FF, #6633CC);
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 315px;
+}
+
+.test-progress-text {
+    font-size: 12px;
+    font-weight: 500;
+    color: #888888;
+    margin-top: 4px;
+}

@@ -1,0 +1,19 @@
+.section--title {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border-radius: 25px;
+    background-color: #9533FB1A;
+    width: fit-content;
+    padding: 6px 2rem 6px 12px;
+
+    span {
+        font-size: 14px;
+        font-weight: 400;
+    }
+
+    svg{
+        width: 20px;
+        height: 20px;
+    }
+}

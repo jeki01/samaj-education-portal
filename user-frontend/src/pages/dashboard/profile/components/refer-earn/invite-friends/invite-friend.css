@@ -1,0 +1,8 @@
+.invite-friend-shareable-link {
+    @media screen and (max-width:400px) {
+        svg{
+            width: 52px;
+            height: 52px;
+        }
+    }
+}

@@ -1,0 +1,161 @@
+.comp-profile-page-base {
+    width: 100%;
+    max-width: 856px;
+    background-color: #fff;
+    border-radius: 38px;
+    padding: 30px;
+    min-height: 90%;
+    /* max-height: 580px; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    /* resp width */
+    @media screen and (max-width:768px) {
+        margin: 1rem 0;
+        border-radius: 24px;
+        padding: 10px 15px;
+    }
+}
+
+.comp-profile-page-img-wrapper {
+    width: fit-content;
+    margin: auto;
+
+    /* resp height */
+    @media screen and (max-height:800px) {
+        svg {
+            width: 60%;
+            height: auto;
+            margin: auto;
+        }
+    }
+}
+
+.comp-profile-title {
+    font-weight: bold;
+    font-size: 25px;
+    text-align: center;
+
+    span {
+        color: #9533FB;
+    }
+}
+
+.comp-profile-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.comp-profile-form-row {
+    display: flex;
+    gap: 1rem;
+
+    /* resp width */
+    @media screen and (max-width:768px) {
+        flex-wrap: wrap;
+    }
+
+    .input-field {
+        width: 33%;
+
+        /* resp width */
+        @media screen and (max-width:768px) {
+            width: 100%;
+        }
+
+        /* resp height */
+        @media screen and (max-height:800px) {
+            height: 48px;
+        }
+
+        input {
+            width: 85%;
+
+            &:disabled {
+                background-color: transparent;
+            }
+        }
+    }
+}
+
+.input-field {
+    border: 1px solid #9533FB;
+    box-shadow: 0 4px 26px 1px #9533FB33;
+    height: 60px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1rem;
+
+    /* resp height */
+    @media screen and (max-height:800px) {
+        height: 48px;
+    }
+
+    input {
+        outline: none;
+
+        &:disabled {
+            background-color: transparent;
+        }
+    }
+}
+
+.comp-profile-form-row-select {
+    display: flex;
+    gap: 1rem;
+
+    /* resp width */
+    @media screen and (max-width:635px) {
+        flex-wrap: wrap;
+    }
+
+}
+
+.complete-profile-autocomplete-input-base.country-field {
+
+    [data-slot="base"] {
+        opacity: 1;
+    }
+}
+
+.complete-profile-autocomplete-input-base {
+    width: 50%;
+
+
+    /* resp width */
+    @media screen and (max-width:635px) {
+        width: 100%;
+    }
+
+    /* resp height */
+    @media screen and (max-height:800px) {
+        height: 48px;
+    }
+
+    [data-slot=input-wrapper] {
+        border: 1px solid #9533FB;
+        box-shadow: 0 4px 26px 1px #9533FB33;
+        height: 60px;
+        background-color: #fff;
+        border-radius: 10px;
+
+        &:hover {
+            background-color: #fff;
+        }
+    }
+
+}
+
+.pincode-field-wrapper {
+
+    /* resp width */
+    @media screen and (max-width:635px) {
+        width: 100%;
+    }
+}

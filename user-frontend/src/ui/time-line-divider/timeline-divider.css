@@ -1,0 +1,15 @@
+.timeline-divider-container {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+
+    hr {
+        flex-shrink: unset;
+    }
+}
+
+.timeline-divider-text {
+    font-weight: 600;
+    color: #747474;
+    font-size: 14px;
+}

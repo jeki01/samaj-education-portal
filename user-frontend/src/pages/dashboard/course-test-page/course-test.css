@@ -1,0 +1,181 @@
+.learning-test-frame {
+    @media screen and (min-width: 1440px) {
+        width: 1311px;
+        justify-content: space-between;
+    }
+
+    @media screen and (max-width:767px) {
+        height: auto;
+    }
+
+    .left--panel {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        @media screen and (min-width:1071px) and (max-width: 1440px) {
+            width: 700px;
+        }
+
+        @media screen and (min-width:1024px) and (max-width:1071px) {
+            width: 600px;
+        }
+
+        @media screen and (min-width:768px) and (max-width:1024px) {
+            width: auto;
+            padding: 0 24px;
+        }
+
+        @media screen and (max-width:767px) {
+            width: 100%;
+            padding: 0 16px;
+        }
+
+        @media screen and (max-width:400px) {
+            padding: 16px;
+        }
+    }
+
+    .right--panel {
+        @media screen and (max-width:767px) {
+            display: none;
+        }
+    }
+}
+
+.test-learning-header {
+    @media screen and (min-width:768px) and (max-width:1024px) {
+        flex-wrap: wrap;
+        height: auto;
+
+        img {
+            width: 20%;
+        }
+
+        .time-remain-wrapper {
+            justify-content: space-between;
+        }
+    }
+
+    @media screen and (max-width:767px) {
+        .time-remain-wrapper {
+            &>div {
+                font-size: 16px;
+            }
+
+            .countdown-wrapperr {
+                padding: 0 10px;
+                min-width: 120px;
+                height: 34px;
+            }
+        }
+    }
+
+    @media screen and (max-width:457px) {
+        flex-wrap: wrap;
+        height: auto;
+        margin-bottom: 8px;
+    }
+
+}
+
+.test-btn-actions-box {
+    @media screen and (min-width:768px) and (max-width:1024px) {
+        &>button {
+            width: fit-content;
+            font-size: 16px;
+            padding: 0 12px;
+            height: 44px;
+        }
+
+        .test-btn-next-prev-box {
+            /* width: 100%; */
+
+            button {
+                height: 44px;
+                width: fit-content;
+                font-size: 16px;
+                padding: 0 12px;
+            }
+        }
+    }
+
+    @media screen and (max-width:767px) {
+        flex-wrap: wrap;
+
+        &>button {
+            width: fit-content;
+            font-size: 16px;
+            padding: 0 12px;
+            height: 44px;
+        }
+
+        .test-btn-next-prev-box {
+            /* width: 100%; */
+
+            button {
+                height: 44px;
+                width: fit-content;
+                font-size: 16px;
+                padding: 0 12px;
+            }
+        }
+    }
+
+    @media screen and (max-width:400px) {
+        button {
+            width: 100%;
+        }
+
+        .test-btn-next-prev-box {
+            width: 100%;
+            margin-top: 12px;
+            gap: 8px;
+
+            button {
+                width: 100%;
+            }
+        }
+    }
+}
+
+.test-info-bottom-bar {
+    @media screen and (min-width:768px) and (max-width:1024px) {
+        width: 100%;
+        gap: 4px;
+
+        .count--name {
+            font-size: 12px;
+        }
+    }
+
+    @media screen and (max-width:768px) {
+        margin: 1rem 0%;
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+}
+
+.test-btn-next-prev-box {
+    @media screen and (max-width:400px) {
+        gap: 2px;
+    }
+}
+
+.ques-list-box-mob-title {
+
+    /* Small device */
+    @media screen and (max-width:400px) {
+        flex-wrap: wrap;
+        margin-bottom: 8px;
+    }
+}
+
+.mobile-test-info-bar {
+    @media screen and (max-width:768px) {
+        svg {
+            width: 10px;
+            height: 10px;
+        }
+    }
+}

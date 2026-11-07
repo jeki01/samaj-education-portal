@@ -1,0 +1,10 @@
+.my-learn-list-box{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+
+}
+
+.my-learning-select-listbox-wrapper{
+    max-height: unset !important;
+}

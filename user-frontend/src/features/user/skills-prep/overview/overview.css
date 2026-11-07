@@ -1,0 +1,123 @@
+.skill-banner-base {
+    height: 210px;
+    border-radius: 10px;
+    background: #9533FB;
+    background-image: url('/gradient-abstract-borders.png');
+    background-size: contain;
+    background-blend-mode: luminosity;
+    background-repeat: no-repeat;
+    background-position-x: right;
+    padding-left: 2rem;
+    display: flex;
+    align-items: center;
+}
+
+.skill-banner-cta {
+    color: #9533FB;
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 4px 1.5rem;
+    font-weight: 600;
+    font-size: 14px;
+    box-shadow: 0 1px 4px 0 #00000087;
+}
+
+.skill-banner-content {
+    border-left: 4px solid #fff;
+    padding-left: 1rem;
+    margin-bottom: 2rem;
+}
+
+.skill-banner-title {
+    font-size: 28px;
+    color: #fff;
+    font-weight: 600;
+    text-shadow: 0 1px 4px #0000004D;
+}
+
+.skill-banner-para {
+    color: #fff;
+    font-size: 18px;
+}
+
+.skill-info-card {
+    box-shadow: 0 1px 4px 0 #00000087;
+    padding: 1rem;
+    background-color: #fff;
+    border-left: 2px solid #9533FB;
+    border-radius: 10px;
+    width: 100%;
+}
+
+.skill-info-card-cta {
+    background-image: linear-gradient(#A674F9, #7235D8);
+    color: #fff;
+    font-weight: 600;
+    width: 100%;
+    text-align: center;
+    border-radius: 5px;
+    padding: 4px;
+    font-size: 14px;
+}
+
+.skill-info-card-value {
+    font-weight: 700;
+    font-size: 24px;
+}
+
+.skill-info-card-content {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+    border-bottom: 1px solid #EEDEFF;
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+}
+
+.bundle-overview-base {
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+    gap: 1rem;
+    background-color: #F7F1FF;
+    border-radius: 10px;
+    padding: 8px;
+    border: 1px solid #9533FB;
+    width: 90%;
+    margin: auto;
+}
+
+.bundle-overview-img-wrapper {
+    width: 100%;
+    max-width: 279px;
+    height: 130px;
+    border-radius: 5px;
+    border: 1px solid #9533FB;
+}
+
+.bundle-overview-content-wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.bundle-overview-view {
+    text-align: end;
+    font-weight: bold;
+    color: #9933FF;
+    text-decoration: underline;
+    font-size: 14px;
+}
+
+.bundle-overview-content {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+
+}
+
+.bundle-overview-includes {
+    max-width: 378px;
+    width: 100%;
+}

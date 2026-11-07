@@ -1,0 +1,11 @@
+export const enum SETTING_OPTIONS {
+    EACH_QUE,
+    NEG_MARK,
+    QUE_COUNT,
+    TEST_TIME,
+    WEEK_STREAK,
+    MONTH_STREAK,
+    LEVEL_EXP,
+    DEDUCTION,
+    MAX_EXP
+}

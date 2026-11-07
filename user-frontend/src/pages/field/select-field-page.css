@@ -1,0 +1,134 @@
+@keyframes sfCardIn {
+    from { opacity: 0; transform: translateY(18px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+.select-field-base {
+    width: 440px;
+    max-width: calc(100vw - 32px);
+    background: #ffffff;
+    border-radius: 28px;
+    padding: 32px 32px 24px;
+    box-shadow:
+        0 24px 64px rgba(105, 52, 207, 0.2),
+        0 4px 16px rgba(0, 0, 0, 0.06);
+    border: 1px solid rgba(149, 51, 251, 0.08);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    animation: sfCardIn 0.4s cubic-bezier(0.34, 1.2, 0.64, 1);
+
+    @media screen and (max-width: 768px) {
+        border-radius: 22px;
+        padding: 24px 18px 20px;
+    }
+}
+
+/* Illustration */
+.sf-illustration {
+    width: fit-content;
+    margin: 0 auto 4px;
+
+    @media screen and (max-height: 800px) {
+        svg { width: 55%; height: auto; margin: auto; }
+    }
+
+    @media screen and (max-width: 768px) {
+        svg { width: 55%; height: auto; margin: auto; }
+    }
+}
+
+/* Step progress indicator */
+.sf-progress {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    margin: 8px 0 16px;
+}
+
+.sf-step-dot {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    border: 2px solid #e0d0f8;
+    background: #fff;
+    color: #b89ae8;
+    font-size: 12px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.25s ease;
+    flex-shrink: 0;
+}
+
+.sf-step-dot.sf-step-active {
+    background: #9533FB;
+    border-color: #9533FB;
+    color: #fff;
+}
+
+.sf-step-dot.sf-step-done {
+    background: #9533FB;
+    border-color: #9533FB;
+    color: #fff;
+    font-size: 13px;
+}
+
+.sf-step-line {
+    width: 60px;
+    height: 2px;
+    background: #e8d8fc;
+    transition: background 0.25s ease;
+}
+
+.sf-step-line.sf-step-line-done {
+    background: #9533FB;
+}
+
+/* Main content area */
+.sf-content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.select-field-title {
+    font-weight: 700;
+    font-size: 24px;
+    text-align: center;
+    letter-spacing: -0.4px;
+    color: #1a1a2e;
+
+    span { color: #9533FB; }
+
+    @media screen and (max-height: 800px) { font-size: 21px; }
+}
+
+.sf-subtitle {
+    font-size: 13px;
+    color: #7a7a95;
+    text-align: center;
+    font-weight: 500;
+    margin: 4px 0 0;
+}
+
+.select-field-type-base {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+    margin: 16px 0 20px;
+}
+
+.type-select-item-disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+.type-select-item-disabled1 {
+    /* Skills prep is now active - no disabled styling */
+}

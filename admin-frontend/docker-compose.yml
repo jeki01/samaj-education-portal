@@ -1,0 +1,16 @@
+version: "3.8"
+
+services:
+
+  bussibees_adminfrontend:
+
+    image: ${DOCKERHUB_USERNAME}/${IMAGE_NAME}:${IMAGE_TAG}
+
+    container_name: bussibees_adminfrontend
+
+    restart: unless-stopped
+
+    ports:
+      - "3003:80"
+
+    pull_policy: always
