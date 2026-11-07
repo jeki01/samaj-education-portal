@@ -3,6 +3,7 @@ import { checkAuthUserHelper } from "@/helper/auth.helper";
 import { reportChatMsg } from "@/services/competition.service";
 import { handleGetProfileDetails } from "@/services/profile.service";
 import { socket } from "@/socket";
+import Cookies from "js-cookie";
 import moment from "moment";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
@@ -31,6 +32,9 @@ export default function useChat() {
                 userId: resp?.data?.data?._id,
                 user: userName || "Unknown"
             });
+            const token = Cookies.get("buuid") || "";
+            socket.auth = { token };
+            if (!socket.connected) socket.connect();
         } catch (error) {
             const err = error as ErrResp;
             toast.error(err?.response?.data?.message || "Something went wrong");
@@ -40,6 +44,7 @@ export default function useChat() {
 
     useEffect(() => {
         getProfileDetails();
+        return () => { socket.disconnect(); };
     }, [])
 
 
@@ -47,6 +52,7 @@ export default function useChat() {
 
         function onConnect() {
             setIsConnected(true);
+            socket.emit("loadTestGlobalMessages", testId || "");
         }
 
         function onDisconnect() {

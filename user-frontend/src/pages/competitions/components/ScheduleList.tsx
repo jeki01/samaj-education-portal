@@ -5,7 +5,40 @@ import { formatDateIntoReadable, formatMinutesIntoReadable, formatNumber, format
 import BuyCompetitionTestModal from "./BuyCompetitionTestModal";
 import { Button, useDisclosure } from "@heroui/react";
 import { useNavigate, useSearchParams } from "react-router";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+
+function useCountdown(scheduleDate: string, scheduleTime: string) {
+    const [remaining, setRemaining] = useState("");
+    useEffect(() => {
+        function calc() {
+            const parts = scheduleDate.split("-");
+            if (parts.length !== 3) return setRemaining("");
+            const isoDate = `${parts[2]}-${parts[1]}-${parts[0]}T${scheduleTime}+05:30`;
+            const diff = new Date(isoDate).getTime() - Date.now();
+            if (diff <= 0) return setRemaining("");
+            const d = Math.floor(diff / 86400000);
+            const h = Math.floor((diff % 86400000) / 3600000);
+            const m = Math.floor((diff % 3600000) / 60000);
+            const s = Math.floor((diff % 60000) / 1000);
+            if (d > 0) setRemaining(`${d}d ${h}h ${m}m`);
+            else setRemaining(`${h.toString().padStart(2,"0")}:${m.toString().padStart(2,"0")}:${s.toString().padStart(2,"0")}`);
+        }
+        calc();
+        const id = setInterval(calc, 1000);
+        return () => clearInterval(id);
+    }, [scheduleDate, scheduleTime]);
+    return remaining;
+}
+
+function CountdownBadge({ scheduleDate, scheduleTime }: { scheduleDate: string; scheduleTime: string }) {
+    const remaining = useCountdown(scheduleDate, scheduleTime);
+    if (!remaining) return null;
+    return (
+        <div style={{ background: "linear-gradient(90deg,#4B0082,#9933FF)", color: "#fff", borderRadius: "8px", padding: "6px 12px", fontSize: "13px", fontWeight: 600, display: "flex", alignItems: "center", gap: "6px", whiteSpace: "nowrap" }}>
+            <span>⏳</span><span>Starts in {remaining}</span>
+        </div>
+    );
+}
 
 export default function ScheduleList({ scheduleListData, handleSetCurrTestDetails, currentSelectedTest, handleEnrollNow, walletBalance }: ScheduleListProps) {
     const { isOpen, onOpenChange, onClose, onOpen } = useDisclosure();
@@ -57,7 +90,9 @@ export default function ScheduleList({ scheduleListData, handleSetCurrTestDetail
                                     }
                                 </div>
                                 {
-                                    item?.purchased ?
+                                    (item as any)?.isUpcoming ? (
+                                        <CountdownBadge scheduleDate={item.scheduleDate} scheduleTime={item.scheduleTime} />
+                                    ) : item?.purchased ?
                                         <Button
                                             isDisabled={isTimeIsPassed(item?.scheduleDate, item?.scheduleTime)}
                                             className={`action ${isTimeIsPassed(item?.scheduleDate, item?.scheduleTime) ? "disabled" : ""}`}
