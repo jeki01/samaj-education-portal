@@ -16,8 +16,10 @@ const initValTest: createExamI = {
     marksPerQuestion: "",
     negativeMarkings: 0,
     scheduleDate: null as DateValue | null,
+    scheduleTime: null,
+    scheduleEndDate: null as DateValue | null,
+    scheduleEndTime: null,
     testSeries: [],
-    scheduleTime: null
 }
 
 export default function UseGovExamMain() {
@@ -51,6 +53,8 @@ export default function UseGovExamMain() {
         formData.append("negativeMarkings", val.negativeMarkings.toString());
         if (val.scheduleDate) formData.append("scheduleDate", formatDateToDDMMYYYY(val.scheduleDate.toString()));
         if (val.scheduleTime) formData.append("scheduleTime", val.scheduleTime.toString());
+        if (val.scheduleEndDate) formData.append("scheduleEndDate", formatDateToDDMMYYYY(val.scheduleEndDate.toString()));
+        if (val.scheduleEndTime) formData.append("scheduleEndTime", val.scheduleEndTime.toString());
         // formData.append("categoryType", val.categoryType);
         // if (val.expireDate) formData.append("expireDate", formatDateToDDMMYYYY(val.expireDate.toString()));
         // if (val?.subject) formData.append("subject", val.subject);
@@ -95,6 +99,8 @@ export default function UseGovExamMain() {
                 // if (data?.categoryType) createCourseForm.setFieldValue("categoryType", data?.categoryType);
                 // if (data?.subject?._id) createCourseForm.setFieldValue("subject", data?.subject?._id);
                 if (data?.scheduleDate) createCourseForm.setFieldValue("scheduleDate", stringToCalendarDate(data?.scheduleDate));
+                if (data?.scheduleEndDate) createCourseForm.setFieldValue("scheduleEndDate", stringToCalendarDate(data?.scheduleEndDate));
+                if (data?.scheduleEndTime) createCourseForm.setFieldValue("scheduleEndTime", parseTimeString(data?.scheduleEndTime));
             } catch (error) {
                 console.log(error);
                 const err = error as ErrResp;

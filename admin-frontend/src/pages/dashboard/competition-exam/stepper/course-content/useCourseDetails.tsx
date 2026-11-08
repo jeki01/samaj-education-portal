@@ -18,6 +18,8 @@ const initValTest: createExamI = {
     negativeMarkings: 0,
     scheduleDate: null as DateValue | null,
     scheduleTime: null,
+    scheduleEndDate: null as DateValue | null,
+    scheduleEndTime: null,
     testSeries: []
 }
 

@@ -13,21 +13,26 @@ import EditPrimaryIcon from "@/svg/EditPrimaryIcon";
 import DeleteIcon from "@/svg/DeleteIcon";
 import SuccessCheckedIcon from "@/svg/SuccessCheckedIcon";
 import { useNavigate } from "react-router";
-// import useGovList from "../hooks/useGovList";
 import DangerCheckedIcon from "@/svg/DangerCheckedIcon";
 import useGovList from "../hooks/useGovList";
-// import InputSelect from "@/ui/select-input/InputSelect";
-// import { useEffect, useState } from "react";
-// import useGovList from "../../gov-exam/hooks/useGovList";
-// import UseCreateCourse from "../../gov-exam/hooks/useCreateCourse";
-// import UseCreateCourse from "../hooks/useCreateCourse";
+import { useState } from "react";
 
 export default function CompetitionCourseList() {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
+  const { isOpen: isPauseOpen, onOpen: onPauseOpen, onOpenChange: onPauseOpenChange } = useDisclosure();
+  const [pauseTargetId, setPauseTargetId] = useState<string>("");
   const navigate = useNavigate();
-  // const [AllActiveStatus, setAllActiveStatus] = useState(false);
 
-  const { GovListData, deleteGovItem, setdeleteId } = useGovList()
+  const { GovListData, deleteGovItem, setdeleteId, toggleStatus } = useGovList()
+
+  function handleToggleClick(item: { _id: string; status: string }) {
+    if (item.status === "Active") {
+      setPauseTargetId(item._id);
+      onPauseOpen();
+    } else {
+      toggleStatus(item._id);
+    }
+  }
   // Add New Feild
   function handleAddNewField() {
     navigate("/competition-exam/create-course")
@@ -142,6 +147,8 @@ export default function CompetitionCourseList() {
               <span className="w-[150px] flex items-center justify-center course--list--head">Schedule Date </span>
               <span className="w-[150px] flex items-center justify-center course--list--head">Test Series </span>
               <span className="w-[150px] flex items-center justify-center course--list--head">File </span>
+              <span className="w-[120px] flex items-center justify-center course--list--head">Status</span>
+              <span className="w-[120px] flex items-center justify-center course--list--head">Report</span>
               <span className="w-[150px] flex items-center justify-center course--list--head">Action</span>
             </li>
             <div className="gov-course-list-body-comp">
@@ -181,13 +188,25 @@ export default function CompetitionCourseList() {
                           <DangerCheckedIcon />
                       }
                     </div>
-                    <div className="gov--course--list--item---cell-comp flex justify-center">
-                      {
-                        item?.status === "Inactive" ?
-                          <div className="xl:text-[16px] text-[14px] w-[150px] flex items-center justify-center published-status-inactive">Parked</div>
-                          :
-                          <div className="xl:text-[16px] text-[14px] w-[150px] flex items-center justify-center published-status">Published</div>
-                      }
+                    <div className="gov--course--list--item---cell-comp flex justify-center w-[120px]">
+                      <button
+                        onClick={() => handleToggleClick(item as any)}
+                        title={item?.status === "Active" ? "Pause Exam" : "Start Exam"}
+                        style={{
+                          background: item?.status === "Active" ? "linear-gradient(90deg,#16a34a,#22c55e)" : "linear-gradient(90deg,#6633CC,#9933FF)",
+                          color: "#fff", border: "none", borderRadius: 8, padding: "6px 14px", cursor: "pointer", fontSize: 13, fontWeight: 600, minWidth: 80
+                        }}
+                      >
+                        {item?.status === "Active" ? "⏸ Live" : "▶ Start"}
+                      </button>
+                    </div>
+                    <div className="w-[120px] flex items-center justify-center gov--course--list--item---cell-comp">
+                      <button
+                        onClick={() => navigate(`/competition-exam/report/${item?._id}`)}
+                        style={{ background: "linear-gradient(90deg,#4B0082,#9933FF)", color: "#fff", border: "none", borderRadius: 8, padding: "6px 14px", cursor: "pointer", fontSize: 13, fontWeight: 600 }}
+                      >
+                        📊 Report
+                      </button>
                     </div>
                     <div className="gap-x-4 w-[150px] flex items-center justify-center gov--course--list--item---cell-comp">
                       <button onClick={() => {
@@ -224,12 +243,37 @@ export default function CompetitionCourseList() {
                     Close
                   </Button>
                   <Button color="primary" onPress={() => {
-                    // handleDeleteLocation(itemId, type)
                     deleteGovItem()
                     onClose()
-                    // setitemId("")
                   }}>
                     Delete
+                  </Button>
+                </ModalFooter>
+              </>
+            )}
+          </ModalContent>
+        </Modal>
+
+        <Modal isOpen={isPauseOpen} onOpenChange={onPauseOpenChange} disableAnimation={true}>
+          <ModalContent>
+            {(onClose) => (
+              <>
+                <ModalHeader style={{ color: "#dc2626" }}>⚠️ Exam Pause Confirmation</ModalHeader>
+                <ModalBody>
+                  <p style={{ fontWeight: 500 }}>Kya aap sure hain?</p>
+                  <p style={{ color: "#555", fontSize: 14 }}>
+                    Exam pause karne se jo bacha abhi test de raha hai uska test automatically submit ho jayega aur usse "Exam Paused" message dikhai dega.
+                  </p>
+                </ModalBody>
+                <ModalFooter>
+                  <Button color="default" variant="light" onPress={onClose}>
+                    Cancel
+                  </Button>
+                  <Button color="danger" onPress={() => {
+                    toggleStatus(pauseTargetId);
+                    onClose();
+                  }}>
+                    ⏸ Haan, Pause Karo
                   </Button>
                 </ModalFooter>
               </>

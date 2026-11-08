@@ -290,6 +290,31 @@ export default function CreateCourse({ handleCancelCourse, createCourseForm }: C
                             value={createCourseForm.values.scheduleTime}
                             onChange={(date) => createCourseForm.setFieldValue("scheduleTime", date)}
                         />
+                    </div>
+                    <div className="course-expiry-date-comp" style={{ marginTop: 12 }}>
+                        <div className="create-course-validity-text text-nowrap mr-4" style={{ color: "#dc2626" }}>End Date</div>
+                        <DatePicker
+                            aria-label="endDateExam"
+                            minValue={today(getLocalTimeZone())}
+                            value={createCourseForm.values.scheduleEndDate}
+                            onChange={(date) => createCourseForm.setFieldValue("scheduleEndDate", date)}
+                            classNames={{
+                                inputWrapper:
+                                    "shadow-[0_0_10px_#00000026] rounded-[6px] h-[52px] px-4 bg-white hover:bg-white",
+                                calendarContent: "course-expiry-datepicker",
+                            }}
+                        />
+                        <div className="create-course-validity-text text-nowrap mx-4" style={{ color: "#dc2626" }}>End Time</div>
+                        <TimeInput
+                            aria-label="Exam End Time"
+                            classNames={{
+                                inputWrapper:
+                                    "shadow-[0_0_10px_#00000026] rounded-[6px] h-[52px] px-4 bg-white hover:bg-white",
+                                segment: "course-expiry-datepicker",
+                            }}
+                            value={createCourseForm.values.scheduleEndTime}
+                            onChange={(date) => createCourseForm.setFieldValue("scheduleEndTime", date)}
+                        />
 
 
                         {/* <DatePicker

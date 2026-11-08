@@ -1,5 +1,6 @@
 import CompetitionCourseList from "@/pages/dashboard/competition-exam/competition-course-list/CompetitionCourseList";
 import CompetitionExamPage from "@/pages/dashboard/competition-exam/CompetitionExamPage";
+import CompetitionReportPage from "@/pages/dashboard/competition-exam/competition-report/CompetitionReportPage";
 import CoursePage from "@/pages/dashboard/courses/CoursePage";
 import GovCourseList from "@/pages/dashboard/gov-exam/gov-course-list/GovCourseList";
 import GovExamPage from "@/pages/dashboard/gov-exam/GovExamPage";
@@ -34,6 +35,7 @@ export default function Index() {
                     <Route path="/gov-exam/:slug" element={<GovExamPage />} />
                     <Route path="/competition-exam" element={<CompetitionCourseList />} />
                     <Route path="/competition-exam/:slug" element={<CompetitionExamPage />} />
+                    <Route path="/competition-exam/report/:testId" element={<CompetitionReportPage />} />
                     <Route path="/skill-course" element={<SubjectIndex />} />
                     <Route path="/skill-course/:slug" element={<SkillCoursePage />} />
                     <Route path="/skill-bundle" element={<SkillBundleIndex />} />

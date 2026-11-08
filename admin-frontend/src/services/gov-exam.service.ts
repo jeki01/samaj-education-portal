@@ -32,6 +32,14 @@ export const handleDeleteCompetitionCourse = (id: string) => {
     return axiosInstance.delete("/v1/getschduleTest/" + id)
 }
 
+export const handleGetCompetitionReport = (testId: string) => {
+    return axiosInstance.get("/v1/competition-report/" + testId)
+}
+
+export const handleToggleExamStatus = (id: string) => {
+    return axiosInstance.put("/v1/toggleExamStatus/" + id)
+}
+
 // edit get by id
 export const handleGovCourseById = (id: string) => {
     return axiosInstance.get("/v1/GovernmentCourseById/" + id)

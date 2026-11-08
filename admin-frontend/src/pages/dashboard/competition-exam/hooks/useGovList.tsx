@@ -1,6 +1,6 @@
 import type { ErrResp } from "@/config/axios-instance";
 import { checkAuthUserHelper } from "@/helper/global.helper";
-import { handleDeleteCompetitionCourse, handleFilterGovList, handleGetCompetitionCourse } from "@/services/gov-exam.service";
+import { handleDeleteCompetitionCourse, handleFilterGovList, handleGetCompetitionCourse, handleToggleExamStatus } from "@/services/gov-exam.service";
 import { useFormik } from "formik";
 import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
@@ -72,12 +72,23 @@ export default function useGovList() {
         }
     }
 
+    async function toggleStatus(id: string) {
+        try {
+            await handleToggleExamStatus(id);
+            getGovList();
+        } catch (error) {
+            const err = error as ErrResp;
+            toast.error(err?.response?.data?.message);
+        }
+    }
+
     return {
         GovListData,
         deleteGovItem,
         setdeleteId,
         createCourseForm,
-        getGovList
+        getGovList,
+        toggleStatus
     }
 }
 
@@ -108,6 +119,8 @@ interface ListDetails {
     "negativeMarkings": string,
     "scheduleDate": string,
     "scheduleTime": string,
+    "scheduleEndDate": string,
+    "scheduleEndTime": string,
     "totalExamTime": string,
 }
 // import type { ErrResp } from "@/config/axios-instance";

@@ -32,5 +32,7 @@ export interface createExamI {
     negativeMarkings: number;
     scheduleDate: DateValue | null;
     scheduleTime: Time | null;
+    scheduleEndDate: DateValue | null;
+    scheduleEndTime: Time | null;
     testSeries: TestSeriesI[]
 }
