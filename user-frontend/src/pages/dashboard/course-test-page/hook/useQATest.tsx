@@ -7,7 +7,7 @@ import { useNavigate, useParams, useSearchParams } from "react-router";
 import { getPercentage, minutesToSeconds } from "@/helper/global.helper";
 import { toast } from "react-toastify";
 import { v4 as uuidv4 } from 'uuid';
-import { getCompetitionDetailsById } from "@/services/competition.service";
+import { checkExamStatusAPI, getCompetitionDetailsById } from "@/services/competition.service";
 // let questionAttemptedCount = 0;
 
 export default function UseQATest() {
@@ -254,6 +254,26 @@ export default function UseQATest() {
             }, 3000);
         }
     }, [testTimeLeftInSec])
+
+    // Poll exam status every 10 sec for competition exams
+    useEffect(() => {
+        if (slug?.courseId !== "competition" || !slug?.topicId) return;
+        const interval = setInterval(async () => {
+            try {
+                const res = await checkExamStatusAPI(slug.topicId!);
+                if (res?.status === "Inactive") {
+                    clearInterval(interval);
+                    toast.warning("Exam has been paused by admin. Your answers are being submitted...");
+                    setTimeout(() => {
+                        if (slug?.topicId && slug?.courseId) {
+                            handleSubmitQuiz({ testSeriesId: slug.topicId!, courseId: slug.courseId! });
+                        }
+                    }, 3000);
+                }
+            } catch (_) {}
+        }, 10000);
+        return () => clearInterval(interval);
+    }, [slug?.courseId, slug?.topicId])
 
 
     return {

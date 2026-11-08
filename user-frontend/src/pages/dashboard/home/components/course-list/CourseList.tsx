@@ -4,10 +4,6 @@ import UseSelectExam from "@/pages/select-exam/useSelectExam";
 import { Select, SelectItem } from "@heroui/react";
 import MultiSelectTickIcon from "@/svg/MultiSelectTickIcon";
 import UseHomeDetails from "../../hook/useHomeDetails";
-import BookCircleIcon from "@/svg/BookCircleIcon";
-import WalletCircleIcon from "@/svg/WalletCircleIcon";
-import RightArrowIcon from "@/svg/RightArrowIcon";
-import { formatNumber } from "@/helper/global.helper";
 
 export default function CourseList() {
     const { ExamListData, handleSelectionChange, handleSubCategory, SubCategoryList, selectedKeys: selectedCategory } = UseSelectExam();
@@ -15,35 +11,6 @@ export default function CourseList() {
     return (
         <>
             <div className="course-list-base">
-                {/* Stats Row */}
-                <div className="home-stats-row">
-                    <div className="home-stat-card">
-                        <div className="home-stat-icon">
-                            <BookCircleIcon />
-                        </div>
-                        <div className="home-stat-body">
-                            <div className="home-stat-number-row">
-                                <span className="home-stat-value">{courseListData.length}</span>
-                                <span className="home-stat-unit">Courses</span>
-                            </div>
-                            <span className="home-stat-label">Available for you</span>
-                        </div>
-                        <div className="home-stat-arrow"><RightArrowIcon /></div>
-                    </div>
-                    <div className="home-stat-card">
-                        <div className="home-stat-icon">
-                            <WalletCircleIcon />
-                        </div>
-                        <div className="home-stat-body">
-                            <div className="home-stat-number-row">
-                                <span className="home-stat-value">₹{formatNumber(walletPrice)}</span>
-                            </div>
-                            <span className="home-stat-label">Wallet Balance</span>
-                        </div>
-                        <div className="home-stat-arrow"><RightArrowIcon /></div>
-                    </div>
-                </div>
-
                 {/* head */}
                 <div className="course-list-head home">
                     <div>
@@ -128,7 +95,7 @@ export default function CourseList() {
                 </div>
                 {/* list */}
                 <div className="course-list-box">
-                    {courseListData.length > 0 && courseListData.map((courseItem, i) => (
+                    {courseListData.length > 0 ? courseListData.map((courseItem, i) => (
                         <CourseCard
                             key={i}
                             course={courseItem}
@@ -136,7 +103,13 @@ export default function CourseList() {
                             isRefer={isRefer}
                             courseImage={courseItem?.courseImages}
                         />
-                    ))}
+                    )) : (
+                        <div className="course-empty-state">
+                            <div className="course-empty-icon">🍳</div>
+                            <div className="course-empty-title">We're cooking for you!</div>
+                            <div className="course-empty-subtitle">Courses are coming soon. Stay tuned!</div>
+                        </div>
+                    )}
                 </div>
             </div>
         </>

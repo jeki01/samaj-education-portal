@@ -7,7 +7,7 @@ export default function OnboardLayout() {
             <div>
                 {/* header */}
                 <div className="2xl:h-[90px] h-[60px] bg-white flex items-center justify-center relative" style={{ zIndex: 5 }}>
-                    <img src="/brand-logo.svg" alt="logo" className="w-[227px] 2xl:h-[88px] h-[50px]" />
+                    <img src="/brand-logo.png" alt="logo" className="w-[200px] h-auto object-contain" />
                 </div>
                 <Outlet />
                 {/* footer */}

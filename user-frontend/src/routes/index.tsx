@@ -35,6 +35,7 @@ import OnboardLayout from "@/pages/onboarding/OnboardLayout";
 import PricingPlans from "@/pages/pricing-plans/PricingPlans";
 import PrivacyPolicy from "@/pages/privacy-policy/PrivacyPolicy";
 import TermCondition from "@/pages/term-condition/TermCondition";
+import LogoLoader from "@/ui/LogoLoader";
 
 export default function Index() {
     const { accountMode } = useAccount();
@@ -64,7 +65,7 @@ export default function Index() {
 
                     {/* Exam mode routes */}
                     <Route path="/home" element={
-                        accountMode === null ? <div className="flex justify-center items-center h-screen">Loading...</div>
+                        accountMode === null ? <LogoLoader />
                         : accountMode === "exam" ? <HomePage />
                         : <Navigate to="/overview" replace />
                     } />
@@ -77,7 +78,7 @@ export default function Index() {
                     <Route path="/explore-bundle" element={<Plans />} />
                     <Route path="/certificates" element={<SkillCertificates />} />
                     <Route path="/overview" element={
-                        accountMode === null ? <div className="flex justify-center items-center h-screen">Loading...</div>
+                        accountMode === null ? <LogoLoader />
                         : accountMode !== "exam" ? <SkillOverview />
                         : <Navigate to="/home" replace />
                     } />

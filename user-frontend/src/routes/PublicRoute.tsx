@@ -1,18 +1,13 @@
 import useAuth from "@/context/useAuth";
 import { Navigate, Outlet, useSearchParams } from "react-router";
+import LogoLoader from "@/ui/LogoLoader";
 
 export default function PublicRoute() {
     // const { accountMode } = useAccount();
     const { isAuthenticated, loading, accMode } = useAuth();
     const [searchParams] = useSearchParams();
 
-    if (loading) {
-        return (
-            <div className="flex justify-center items-center h-screen w-full font-bold text-2xl">
-                Loading...
-            </div>
-        );
-    }
+    if (loading) return <LogoLoader />;
 
     // Redirect skills users away from public routes
 

@@ -67,7 +67,7 @@ export default function ScheduleList({ scheduleListData, handleSetCurrTestDetail
                             <div className="item-details">
                                 <TestListIcon />
                                 <div className="item-content">
-                                    <div className="item-name truncate w-[200px]" title={item?.examName}>{item?.examName || "-"} </div>
+                                    <div className="item-name truncate max-w-[200px]" title={item?.examName}>{item?.examName || "-"} </div>
                                     <div className="scheduled-val test-duration-mob">Test Duration: {formatMinutesIntoReadable(item.totalExamTime) || "-"}</div>
                                     <div className="scheduled-val test-duration-mob">Scheduled Date & Time: {formatDateIntoReadable(item?.scheduleDate) || "-"} | {formatTimeIntoReadable(item?.scheduleTime) || "-"}</div>
                                 </div>
@@ -90,7 +90,9 @@ export default function ScheduleList({ scheduleListData, handleSetCurrTestDetail
                                     }
                                 </div>
                                 {
-                                    (item as any)?.isUpcoming ? (
+                                    ((item as any)?.isPaused || (item as any)?.isEnded) ? (
+                                        <span style={{ background: "#fee2e2", color: "#dc2626", borderRadius: 20, padding: "4px 14px", fontSize: 13, fontWeight: 600 }}>🔴 Exam Ended</span>
+                                    ) : (item as any)?.isUpcoming ? (
                                         <CountdownBadge scheduleDate={item.scheduleDate} scheduleTime={item.scheduleTime} />
                                     ) : item?.purchased ?
                                         <Button

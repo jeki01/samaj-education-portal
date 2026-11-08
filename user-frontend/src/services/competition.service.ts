@@ -20,6 +20,11 @@ export const reportChatMsg = async (testId: string, msgId: string) => {
     return response.data;
 }
 
+export const checkExamStatusAPI = async (testId: string) => {
+    const response = await axiosInstance.get(`/v1/checkExamStatus/${testId}`);
+    return response.data;
+}
+
 interface CompleteTestParams {
     testId: string;
     paymentstatus: boolean;

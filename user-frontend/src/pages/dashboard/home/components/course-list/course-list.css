@@ -149,6 +149,41 @@
     }
 }
 
+/* ── Empty State ───────────────────────────────────── */
+.course-empty-state {
+    grid-column: 1 / -1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 48px 24px;
+    text-align: center;
+}
+
+.course-empty-icon {
+    font-size: 56px;
+    margin-bottom: 12px;
+    animation: cookBounce 1.6s ease-in-out infinite;
+}
+
+@keyframes cookBounce {
+    0%, 100% { transform: rotate(-8deg) scale(1); }
+    50% { transform: rotate(8deg) scale(1.1); }
+}
+
+.course-empty-title {
+    font-size: 20px;
+    font-weight: 800;
+    color: #1a1a2e;
+    margin-bottom: 6px;
+}
+
+.course-empty-subtitle {
+    font-size: 14px;
+    color: #9a9aab;
+    font-weight: 400;
+}
+
 /* ── Filters ───────────────────────────────────────── */
 .course-list-filter-base {
     display: flex;
