@@ -29,9 +29,9 @@ export default function SideBar({ toggleMenu, handleClose }: { toggleMenu: boole
     return (
         <>
             <div className={`w-[240px] bg-[#F7F1FF] h-screen layout-sidebar p-[32px] pt-4 flex flex-col justify-between ${toggleMenu ? "open" : "close"}`}>
-                <div className="w-full mx-auto flex flex-col gap-y-[48px] content__wrapper">
+                <div className="w-full mx-auto flex flex-col gap-y-[20px] content__wrapper">
                     <div className="flex justify-between items-center logo__header">
-                        <img src="/brand-logo.png" alt="Panchal Pragati" className="w-[143px] h-[64px]" />
+                        <img src="/brand-logo.png" alt="Panchal Pragati" className="w-[160px] h-auto object-contain" />
                         <button onClick={() => handleClose(false)} className="close--btn"><CloseMenuIcon /></button>
                     </div>
                     <div className="flex flex-col gap-y-[10px]">
